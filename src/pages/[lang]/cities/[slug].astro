@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import { assertLang } from "../../../lib/lang";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const cities = await getCollection("cities");
+
+  return cities.flatMap((city) => [
+    { params: { lang: "en", slug: city.slug } },
+    { params: { lang: "ar", slug: city.slug } },
+  ]);
+}
+
+const { lang, slug } = Astro.params;
+assertLang(lang);
+
+// Find the city by slug
+const cities = await getCollection("cities");
+const city = cities.find((c) => c.slug === slug);
+
+if (!city) {
+  throw new Error(`City not found: ${slug}`);
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={city.data.name[lang]}
+  description={city.data.description[lang]}
+>
+  <h1 class="text-3xl font-bold mb-4">{city.data.name[lang]}</h1>
+
+  <p class="text-gray-700 dark:text-gray-300 mb-4">
+    {city.data.description[lang]}
+  </p>
+
+  {
+    city.data.summary && (
+      <p class="text-gray-600 dark:text-gray-400 italic">
+        {city.data.summary[lang]}
+      </p>
+    )
+  }
+</BaseLayout>

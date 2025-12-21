@@ -1,0 +1,17 @@
+{
+    "site": {
+        "title": "Yemen Atlas",
+        "description": "An evidence-based documentation platform on Yemen"
+    },
+    "nav": {
+        "blog": "Blog",
+        "cities": "Cities",
+        "history": "History",
+        "about": "About",
+        "switch": "العربية"
+    },
+    "home": {
+        "heading": "Welcome to Yemen Atlas",
+        "intro": "An evidence-based documentation platform."
+    }
+}

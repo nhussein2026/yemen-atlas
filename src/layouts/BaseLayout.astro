@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import { dir } from "../lib/i18n";
+import Navbar from "./Navbar.astro";
+import Footer from "./Footer.astro";
+
+const {
+  lang = "en",
+  title = "Yemen Atlas",
+  description = "An evidence-based documentation platform on Yemen",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} dir={dir(lang)}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
+    <Navbar lang={lang} />
+
+    <!-- Main content -->
+    <main class="flex-1 container mx-auto px-4 py-10">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

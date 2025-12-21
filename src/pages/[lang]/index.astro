@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, LANGS } from "../../lib/i18n";
+
+/**
+ * Tell Astro which language pages to generate
+ */
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+const { lang } = Astro.params;
+---
+
+<BaseLayout
+  lang={lang}
+  title={t(lang, { en: "Yemen Atlas", ar: "مرصد اليمن" })}
+  description={t(lang, {
+    en: "Evidence-based documentation of events in Yemen",
+    ar: "توثيق قائم على الأدلة للأحداث في اليمن",
+  })}
+>
+  <h1>{t(lang, { en: "Yemen Atlas", ar: "مرصد اليمن" })}</h1>
+</BaseLayout>

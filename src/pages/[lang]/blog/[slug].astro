@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import { assertLang } from "../../../lib/lang";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const { post, lang } = Astro.props;
+assertLang(lang);
+
+// Generate static paths for all blog posts in both languages
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return ["en", "ar"].flatMap((lang) =>
+    posts.map((post) => ({
+      params: { lang, slug: post.slug },
+      props: { post, lang },
+    }))
+  );
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={post.data.title[lang]}
+  description={post.data.excerpt[lang]}
+>
+  <h1>{post.data.title[lang]}</h1>
+  <p>{post.data.excerpt[lang]}</p>
+
+  <article>
+    <slot />
+  </article>
+</BaseLayout>

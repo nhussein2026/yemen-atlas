@@ -1,0 +1,56 @@
+---
+import { t } from "../lib/translations";
+import type { Lang } from "../lib/i18n";
+
+const { lang } = Astro.props as { lang: Lang };
+
+const l = (path = "") => `/${lang}${path}`;
+const toggleLang = lang === "ar" ? "en" : "ar";
+const currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, "");
+---
+
+<header dir="ltr" class="border-b border-gray-200 bg-white">
+  <nav class="container mx-auto flex items-center justify-between px-4 py-4">
+    <!-- Brand -->
+    <a
+      href={l()}
+      class="text-lg font-semibold tracking-tight hover:text-blue-600"
+    >
+      Yemen Atlas
+    </a>
+
+    <!-- Navigation + Language Toggle -->
+    <div class="flex items-center gap-6">
+      <ul class="flex items-center gap-6 text-sm font-medium">
+        <li>
+          <a href={l("/blog")} class="hover:text-blue-600"
+            >{t(lang, "nav.blog")}</a
+          >
+        </li>
+        <li>
+          <a href={l("/cities")} class="hover:text-blue-600"
+            >{t(lang, "nav.cities")}</a
+          >
+        </li>
+        <li>
+          <a href={l("/history")} class="hover:text-blue-600"
+            >{t(lang, "nav.history")}</a
+          >
+        </li>
+        <li>
+          <a href={l("/about")} class="hover:text-blue-600"
+            >{t(lang, "nav.about")}</a
+          >
+        </li>
+      </ul>
+
+      <!-- Language Toggle -->
+      <a
+        href={`/${toggleLang}${currentPath}`}
+        class="ml-4 px-2 py-1 border rounded text-sm hover:bg-gray-100"
+      >
+        {toggleLang.toUpperCase()}
+      </a>
+    </div>
+  </nav>
+</header>
