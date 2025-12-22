@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { assertLang } from "../../../lib/lang";
+import { getGovernorates } from "../../../lib/data";
+
+// Static paths for English and Arabic
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+const { lang } = Astro.params;
+assertLang(lang);
+
+// Get all city entries
+const cities = await getCollection("cities");
+const governorates = getGovernorates();
+---
+
+<BaseLayout
+  lang={lang}
+  title={lang === "en" ? "Explore Yemen" : "استكشف اليمن"}
+>
+  <h1 class="text-3xl font-bold mb-6">
+    {lang === "en" ? "Cities of Yemen" : "مدن اليمن"}
+  </h1>
+
+  <ul class="space-y-4">
+    {
+      cities.map((city) => (
+        <li>
+          <a
+            href={`/${lang}/cities/${city.slug}`}
+            class="text-blue-600 hover:underline"
+          >
+            {city.data.name[lang]}
+          </a>
+          {city.data.summary && (
+            <p class="text-gray-700 dark:text-gray-300 text-sm mt-1">
+              {city.data.summary[lang]}
+            </p>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h1 class="text-3xl font-bold mb-6 mt-12">
+    {lang === "en" ? "Governorates of Yemen" : "محافظات اليمن"}
+  </h1>
+
+  <ul class="space-y-4">
+    {
+      governorates.map((governorate) => (
+        <li>
+          <a
+            href={`/${lang}/explore/${governorate.id}`}
+            class="text-blue-600 hover:underline"
+          >
+            {lang === "en" ? governorate.name_en : governorate.name_ar}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

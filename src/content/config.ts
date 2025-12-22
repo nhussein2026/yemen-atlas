@@ -22,6 +22,14 @@ export const collections = {
     }),
   }),
 
+  governorates: defineCollection({
+    type: "content",
+    schema: z.object({
+      name: z.string(),
+      description: z.string(),
+    }),
+  }),
+
   history: defineCollection({
     type: "content",
     schema: z.object({

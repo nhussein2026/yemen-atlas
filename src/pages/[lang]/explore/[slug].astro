@@ -1,0 +1,54 @@
+---
+import { assertLang } from "../../../lib/lang";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getGovernorates } from "../../../lib/data";
+
+export async function getStaticPaths() {
+  const governorates = getGovernorates();
+
+  const governoratePaths = governorates.flatMap((governorate) => [
+    { params: { lang: "en", slug: governorate.id.toString() } },
+    { params: { lang: "ar", slug: governorate.id.toString() } },
+  ]);
+
+  return governoratePaths;
+}
+
+const { lang, slug } = Astro.params;
+assertLang(lang);
+
+const governorates = getGovernorates();
+const governorate = governorates.find((g) => g.id.toString() === slug);
+
+if (!governorate) {
+  throw new Error(`Governorate not found: ${slug}`);
+}
+
+const name = lang === 'en' ? governorate.name_en : governorate.name_ar;
+---
+
+<BaseLayout
+  lang={lang}
+  title={name}
+>
+  <h1 class="text-3xl font-bold mb-4">{name}</h1>
+
+    <h2 class="text-2xl font-bold mb-4 mt-8">
+        {lang === 'en' ? 'Districts' : 'المديريات'}
+    </h2>
+
+    <ul class="space-y-4">
+        {
+            governorate.districts.map((district) => (
+                <li>
+                    <a
+                        href={`/${lang}/explore/districts/${district.id}`}
+                        class="text-blue-600 hover:underline"
+                    >
+                        {lang === 'en' ? district.name_en : district.name_ar}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

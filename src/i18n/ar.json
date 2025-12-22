@@ -3,13 +3,28 @@
         "title": "أطلس اليمن",
         "description": "منصة توثيق قائمة على الأدلة حول اليمن"
     },
-    "nav": {
-        "blog": "المدونة",
-        "cities": "المدن",
-        "history": "التاريخ",
-        "about": "حول",
-        "switch": "English"
-    },
+    "nav": [
+        {
+            "label": "المدونة",
+            "link": "blog"
+        },
+        {
+            "label": "استكشف",
+            "link": "explore"
+        },
+        {
+            "label": "التاريخ",
+            "link": "history"
+        },
+        {
+            "label": "مرصد اطلس",
+            "link": "atlas-observatory"
+        },
+        {
+            "label": "اطلس",
+            "link": "about"
+        }
+    ],
     "home": {
         "heading": "مرحباً بكم في أطلس اليمن",
         "intro": "منصة توثيق تعتمد على الأدلة."

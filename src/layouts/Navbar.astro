@@ -7,6 +7,7 @@ const { lang } = Astro.props as { lang: Lang };
 const l = (path = "") => `/${lang}${path}`;
 const toggleLang = lang === "ar" ? "en" : "ar";
 const currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, "");
+const nav_menu = t(lang, "nav");
 ---
 
 <header dir="ltr" class="border-b border-gray-200 bg-white">
@@ -22,26 +23,24 @@ const currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, "");
     <!-- Navigation + Language Toggle -->
     <div class="flex items-center gap-6">
       <ul class="flex items-center gap-6 text-sm font-medium">
-        <li>
-          <a href={l("/blog")} class="hover:text-blue-600"
-            >{t(lang, "nav.blog")}</a
-          >
-        </li>
-        <li>
-          <a href={l("/cities")} class="hover:text-blue-600"
-            >{t(lang, "nav.cities")}</a
-          >
-        </li>
-        <li>
-          <a href={l("/history")} class="hover:text-blue-600"
-            >{t(lang, "nav.history")}</a
-          >
-        </li>
-        <li>
-          <a href={l("/about")} class="hover:text-blue-600"
-            >{t(lang, "nav.about")}</a
-          >
-        </li>
+        {
+          nav_menu.map(({ label, link }) => {
+            const fullHref = link === "/" ? `/${lang}` : `/${lang}/${link}`;
+            const isActive = Astro.url.pathname === fullHref;
+            return (
+              <li>
+                <a
+                  href={fullHref}
+                  class={`hover:text-blue-600  ${
+                    isActive ? "text-blue font-semibold" : ""
+                  }`}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
 
       <!-- Language Toggle -->

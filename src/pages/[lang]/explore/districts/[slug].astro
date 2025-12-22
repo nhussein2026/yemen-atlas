@@ -1,0 +1,58 @@
+---
+import { assertLang } from "../../../../lib/lang";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { getDistricts } from "../../../../lib/data";
+
+export async function getStaticPaths() {
+  const districts = getDistricts();
+
+  const districtPaths = districts.flatMap((district) => [
+    { params: { lang: "en", slug: district.id.toString() } },
+    { params: { lang: "ar", slug: district.id.toString() } },
+  ]);
+
+  return districtPaths;
+}
+
+const { lang, slug } = Astro.params;
+assertLang(lang);
+
+const districts = getDistricts();
+const district = districts.find((d) => d.id.toString() === slug);
+
+if (!district) {
+  throw new Error(`District not found: ${slug}`);
+}
+
+const name = lang === 'en' ? district.name_en : district.name_ar;
+---
+
+<BaseLayout
+  lang={lang}
+  title={name}
+>
+  <h1 class="text-3xl font-bold mb-4">{name}</h1>
+
+    <h2 class="text-2xl font-bold mb-4 mt-8">
+        {lang === 'en' ? 'Sub-districts' : 'العزل'}
+    </h2>
+
+    <ul class="space-y-4">
+        {
+            district.uzaal.map((uzlah) => (
+                <li>
+                    <h3 class="text-xl font-bold">{lang === 'en' ? uzlah.name_en : uzlah.name_ar}</h3>
+                    <ul class="space-y-2 ml-4 mt-2">
+                        {
+                            uzlah.villages.map((village) => (
+                                <li>
+                                    {lang === 'en' ? village.name_en : village.name_ar}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

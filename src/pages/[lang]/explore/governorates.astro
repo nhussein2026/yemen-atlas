@@ -1,0 +1,23 @@
+---
+import { getGovernorates } from "../../../lib/data";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const governorates = await getGovernorates();
+---
+
+<BaseLayout>
+  <div class="container">
+    <h1>Governorates</h1>
+    <ul>
+      {
+        governorates.map((governorate) => (
+          <li>
+            <a href={`/explore/governorates/${governorate.slug}`}>
+              {governorate.data.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

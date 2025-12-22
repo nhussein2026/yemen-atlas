@@ -1,0 +1,21 @@
+---
+import { getGovernorates } from "../../../../lib/data";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const governorates = await getGovernorates();
+  return governorates.map((governorate) => ({
+    params: { slug: governorate.slug },
+    props: { governorate },
+  }));
+}
+
+const { governorate } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="container">
+    <h1>{governorate.data.name}</h1>
+    <p>{governorate.data.description}</p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import { assertLang } from "../../../lib/lang";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const history_posts = await getCollection("history");
+
+  return history_posts.flatMap((post) => [
+    { params: { lang: "en", slug: post.slug } },
+    { params: { lang: "ar", slug: post.slug } },
+  ]);
+}
+
+const { lang, slug } = Astro.params;
+assertLang(lang);
+
+// Find the city by slug
+const history = await getCollection("history");
+const history_post = history.find((c) => c.slug === slug);
+
+if (!history_post) {
+  throw new Error(`history_post not found: ${slug}`);
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={history_post.data.name[lang]}
+  description={history_post.data.description[lang]}
+>
+  <h1 class="text-3xl font-bold mb-4">{history_post.data.name[lang]}</h1>
+
+  <p class="text-gray-700 dark:text-gray-300 mb-4">
+    {history_post.data.description[lang]}
+  </p>
+
+  {
+    history_post.data.summary && (
+      <p class="text-gray-600 dark:text-gray-400 italic">
+        {history_post.data.summary[lang]}
+      </p>
+    )
+  }
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { assertLang } from "../../../lib/lang";
+
+// Static paths for English and Arabic
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+const { lang } = Astro.params;
+assertLang(lang);
+
+// Get all city entries
+const history_entries = await getCollection("history");
+---
+
+<BaseLayout lang={lang} title={lang === "en" ? "Cities of Yemen" : "مدن اليمن"}>
+  <h1 class="text-3xl font-bold mb-6">
+    {lang === "en" ? "Cities of Yemen" : "مدن اليمن"}
+  </h1>
+
+  <ul class="space-y-4">
+    {
+      history_entries.map((entry) => (
+        <li>
+          <a
+            href={`/${lang}/cities/${entry.slug}`}
+            class="text-blue-600 hover:underline"
+          ></a>
+          {entry.data.summary && (
+            <p class="text-gray-700 dark:text-gray-300 text-sm mt-1">
+              {entry.data.summary[lang]}
+            </p>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
