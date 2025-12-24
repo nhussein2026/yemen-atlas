@@ -3437,17 +3437,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nebulous-nadir@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "nebulous-nadir@workspace:."
-  dependencies:
-    "@tailwindcss/vite": "npm:^4.1.18"
-    astro: "npm:^5.16.6"
-    tailwindcss: "npm:^4.1.18"
-    vite: "npm:^7.3.0"
-  languageName: unknown
-  linkType: soft
-
 "negotiator@npm:^1.0.0":
   version: 1.0.0
   resolution: "negotiator@npm:1.0.0"
@@ -4840,6 +4829,17 @@ __metadata:
   checksum: 10c0/f84b5e48169479d2f402239c59f084cfd1c3acc197a05c59b98bab067452e6b3ea46d4dd8ba2985ba7b3d32a343d77df0debd6b343e5dae3da2aab2cdf5886b2
   languageName: node
   linkType: hard
+
+"yemen-atlas@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "yemen-atlas@workspace:."
+  dependencies:
+    "@tailwindcss/vite": "npm:^4.1.18"
+    astro: "npm:^5.16.6"
+    tailwindcss: "npm:^4.1.18"
+    vite: "npm:^7.3.0"
+  languageName: unknown
+  linkType: soft
 
 "yocto-queue@npm:^1.1.1":
   version: 1.2.2

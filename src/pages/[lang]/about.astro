@@ -1,17 +1,151 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { assertLang } from "../../lib/lang";
+import { t } from "../../lib/translations";
 
 const { lang } = Astro.params;
 assertLang(lang);
+
 // Static paths for English and Arabic
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
 }
+
+const about = t(lang, "about");
+const isArabic = lang === "ar";
 ---
 
-<BaseLayout lang={lang} title={lang === "en" ? "Cities of Yemen" : "مدن اليمن"}>
-  <h1 class="text-3xl font-bold mb-6">
-    {lang === "en" ? "Cities of Yemen" : "عنا"}
-  </h1>
+<BaseLayout lang={lang} title={about.title}>
+  <div class={`${isArabic ? "rtl" : "ltr"}`} dir={isArabic ? "rtl" : "ltr"}>
+    <!-- Hero Section -->
+    <section class="mb-16 pb-8 border-b border-light-stone">
+      <h1
+        class="text-4xl md:text-5xl font-bold mb-6"
+        style="color: var(--atlas-archive);"
+      >
+        {about.title}
+      </h1>
+      <p
+        class="text-lg leading-relaxed max-w-3xl"
+        style="color: var(--atlas-archive);"
+      >
+        {about.intro}
+      </p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mb-16 pb-8 border-b border-light-stone">
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="color: var(--atlas-terracotta);"
+      >
+        {about.mission.title}
+      </h2>
+      <p
+        class="text-base leading-relaxed max-w-3xl"
+        style="color: var(--atlas-archive);"
+      >
+        {about.mission.content}
+      </p>
+    </section>
+
+    <!-- Principles Section -->
+    <section class="mb-16 pb-8 border-b border-light-stone">
+      <h2
+        class="text-3xl font-bold mb-8"
+        style="color: var(--atlas-terracotta);"
+      >
+        {about.principles.title}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          about.principles.items.map((principle) => (
+            <div
+              class="p-6 rounded-lg border-l-4"
+              style="border-color: var(--atlas-terracotta); background-color: var(--atlas-paper);"
+            >
+              <h3
+                class="text-xl font-semibold mb-2"
+                style="color: var(--atlas-archive);"
+              >
+                {principle.title}
+              </h3>
+              <p
+                class="text-sm leading-relaxed"
+                style="color: var(--atlas-stone);"
+              >
+                {principle.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="mb-16 pb-8 border-b border-light-stone">
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="color: var(--atlas-terracotta);"
+      >
+        {about.audience.title}
+      </h2>
+      <p
+        class="text-base leading-relaxed max-w-3xl"
+        style="color: var(--atlas-archive);"
+      >
+        {about.audience.content}
+      </p>
+    </section>
+
+    <!-- Independence Section -->
+    <section class="mb-16 pb-8 border-b border-light-stone">
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="color: var(--atlas-terracotta);"
+      >
+        {about.independence.title}
+      </h2>
+      <p
+        class="text-base leading-relaxed max-w-3xl"
+        style="color: var(--atlas-archive);"
+      >
+        {about.independence.content}
+      </p>
+    </section>
+
+    <!-- Future Section -->
+    <section class="mb-8">
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="color: var(--atlas-terracotta);"
+      >
+        {about.future.title}
+      </h2>
+      <p
+        class="text-base leading-relaxed max-w-3xl"
+        style="color: var(--atlas-archive);"
+      >
+        {about.future.content}
+      </p>
+    </section>
+  </div>
+
+  <style>
+    /* Define CSS custom properties for consistency */
+    .border-light-stone {
+      border-color: var(--atlas-border);
+    }
+
+    .border-atlas-border {
+      border-color: var(--atlas-border);
+    }
+
+    /* Smooth transitions */
+    .transition-all {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+  </style>
 </BaseLayout>

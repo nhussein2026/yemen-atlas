@@ -1,0 +1,50 @@
+---
+/**
+ * ContentPageHeader Component
+ * Standard header for all content pages (blog, history, observatory, etc.)
+ *
+ * Props:
+ * - title: Page title (string)
+ * - description: Optional page description (string)
+ * - lang: Language ('en' or 'ar')
+ */
+
+interface Props {
+  title: string;
+  description?: string;
+  lang: "en" | "ar";
+}
+
+const { title, description, lang } = Astro.props;
+const isArabic = lang === "ar";
+---
+
+<div class={`${isArabic ? "rtl" : "ltr"}`} dir={isArabic ? "rtl" : "ltr"}>
+  <div class="mb-12 pb-8 border-b border-light-stone">
+    <h1
+      class="text-4xl md:text-5xl font-bold mb-4"
+      style="color: var(--color-archive-ink);"
+    >
+      {title}
+    </h1>
+    {
+      description && (
+        <p
+          class="text-lg leading-relaxed max-w-3xl"
+          style="color: var(--color-text-dark);"
+        >
+          {description}
+        </p>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  :global(.rtl h1) {
+    text-align: right;
+  }
+  :global(.ltr h1) {
+    text-align: left;
+  }
+</style>

@@ -6,12 +6,10 @@ import { getGovernorates } from "../../../lib/data";
 export async function getStaticPaths() {
   const governorates = getGovernorates();
 
-  const governoratePaths = governorates.flatMap((governorate) => [
-    { params: { lang: "en", slug: governorate.id.toString() } },
-    { params: { lang: "ar", slug: governorate.id.toString() } },
+  return governorates.flatMap((g) => [
+    { params: { lang: "en", slug: g.id.toString() } },
+    { params: { lang: "ar", slug: g.id.toString() } },
   ]);
-
-  return governoratePaths;
 }
 
 const { lang, slug } = Astro.params;
@@ -24,31 +22,169 @@ if (!governorate) {
   throw new Error(`Governorate not found: ${slug}`);
 }
 
-const name = lang === 'en' ? governorate.name_en : governorate.name_ar;
+const name = lang === "en" ? governorate.name_en : governorate.name_ar;
+const isRTL = lang === "ar";
+
+const districtCount = governorate.districts.length;
+const subDistrictCount = governorate.districts.reduce(
+  (s, d) => s + d.uzaal?.length,
+  0
+);
+const villageCount = governorate.districts.reduce(
+  (s, d) => s + d.uzaal?.reduce((v, u) => v + u.villages?.length, 0),
+  0
+);
 ---
 
-<BaseLayout
-  lang={lang}
-  title={name}
->
-  <h1 class="text-3xl font-bold mb-4">{name}</h1>
+<BaseLayout lang={lang} title={name}>
+  <!-- Header -->
+  <section class="bg-aged-paper mb-18">
+    <div
+      class={`flex items-center gap-4 mb-6 ${isRTL ? "flex-row-reverse" : ""}`}
+    >
+      <div class="w-1 h-14 bg-terracotta rounded-full"></div>
+      <h1
+        class={`font-${isRTL ? "arabic" : "serif"} text-5xl font-bold text-deep-archive`}
+      >
+        {name}
+      </h1>
+    </div>
 
-    <h2 class="text-2xl font-bold mb-4 mt-8">
-        {lang === 'en' ? 'Districts' : 'المديريات'}
+    <p
+      class={`font-${isRTL ? "arabic" : "serif"} text-lg text-mountain-stone max-w-content leading-relaxed`}
+    >
+      {
+        lang === "en"
+          ? `${name} is a major governorate in Yemen, consisting of ${districtCount} districts and ${subDistrictCount} sub-districts.`
+          : `${name} هي إحدى المحافظات اليمنية، وتضم ${districtCount} مديريات و${subDistrictCount} عزلة.`
+      }
+    </p>
+  </section>
+
+  <!-- Statistics -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-22">
+    {
+      [
+        { labelEn: "Districts", labelAr: "المديريات", value: districtCount },
+        { labelEn: "Sub-districts", labelAr: "العزل", value: subDistrictCount },
+        { labelEn: "Villages", labelAr: "القرى", value: villageCount },
+      ].map((stat) => (
+        <div class="bg-white border border-light-stone rounded-lg p-8 shadow-sm">
+          <p class="font-sans text-xs uppercase tracking-wide text-incense-smoke mb-2">
+            {lang === "en" ? stat.labelEn : stat.labelAr}
+          </p>
+          <p class="font-serif text-4xl font-bold text-terracotta">
+            {stat.value}
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- Districts Grid -->
+  <section class="mb-30">
+    <div
+      class={`flex items-center gap-3 mb-12 ${isRTL ? "flex-row-reverse" : ""}`}
+    >
+      <div class="w-1 h-10 bg-desert-sand rounded-full"></div>
+      <h2
+        class={`font-${isRTL ? "arabic" : "serif"} text-4xl font-semibold text-deep-archive`}
+      >
+        {
+          lang === "en"
+            ? `Districts (${districtCount})`
+            : `المديريات (${districtCount})`
+        }
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        governorate.districts.map((district) => (
+          <a
+            href={`/${lang}/explore/districts/${district.id}`}
+            class="group bg-white border border-light-stone rounded-lg p-6 hover:shadow-lg transition-shadow"
+          >
+            <h3
+              class={`font-${isRTL ? "arabic" : "serif"} text-xl font-bold text-deep-archive mb-3`}
+            >
+              {lang === "en" ? district.name_en : district.name_ar}
+            </h3>
+
+            <p class="font-sans text-sm text-incense-smoke mb-4">
+              {district.uzaal?.length}{" "}
+              {lang === "en" ? "sub-districts" : "عزلة"}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              {district.uzaal?.slice(0, 3).map((u) => (
+                <span class="font-sans text-xs px-3 py-1 bg-desert-sand text-deep-archive rounded-full">
+                  {lang === "en" ? u.name_en : u.name_ar}
+                </span>
+              ))}
+            </div>
+
+            <span class="font-sans text-sm font-semibold text-terracotta group-hover:underline">
+              {lang === "en" ? "View details →" : "عرض التفاصيل ←"}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Detailed Districts -->
+  <section class="mb-30">
+    <h2
+      class={`font-${isRTL ? "arabic" : "serif"} text-4xl font-semibold text-deep-archive mb-12`}
+    >
+      {lang === "en" ? "District Details" : "تفاصيل المديريات"}
     </h2>
 
-    <ul class="space-y-4">
-        {
-            governorate.districts.map((district) => (
-                <li>
-                    <a
-                        href={`/${lang}/explore/districts/${district.id}`}
-                        class="text-blue-600 hover:underline"
-                    >
-                        {lang === 'en' ? district.name_en : district.name_ar}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    <div class="space-y-8">
+      {
+        governorate.districts.map((district) => (
+          <article class="bg-white border border-light-stone rounded-lg overflow-hidden">
+            <header class="bg-aged-paper border-b border-light-stone p-6">
+              <h3
+                class={`font-${isRTL ? "arabic" : "serif"} text-2xl font-bold text-deep-archive`}
+              >
+                {lang === "en" ? district.name_en : district.name_ar}
+              </h3>
+            </header>
+
+            <div class="p-6 space-y-6">
+              {district.uzaal?.map((uzlah) => (
+                <div class="border border-light-stone rounded-lg p-4">
+                  <h4
+                    class={`font-${isRTL ? "arabic" : "serif"} font-semibold text-deep-archive mb-3`}
+                  >
+                    {lang === "en" ? uzlah.name_en : uzlah.name_ar}
+                  </h4>
+
+                  <div class="flex flex-wrap gap-2">
+                    {uzlah.villages?.map((v) => (
+                      <span class="font-sans text-xs px-3 py-1 border border-copper text-copper rounded-full">
+                        {lang === "en" ? v.name_en : v.name_ar}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Back -->
+  <div class="pt-12 border-t border-light-stone">
+    <a
+      href={`/${lang}/explore`}
+      class={`inline-flex items-center gap-2 font-sans px-6 py-3 bg-terracotta text-white rounded-lg hover:bg-opacity-90 transition-all ${isRTL ? "flex-row-reverse" : ""}`}
+    >
+      ← {lang === "en" ? "Back to Explore" : "العودة إلى الاستكشاف"}
+    </a>
+  </div>
 </BaseLayout>

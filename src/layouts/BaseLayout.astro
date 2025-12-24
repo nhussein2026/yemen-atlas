@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { dir } from "../lib/i18n";
+import { dir, t } from "../lib/i18n";
 import Navbar from "./Navbar.astro";
 import Footer from "./Footer.astro";
 
@@ -18,16 +18,128 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
-  </head>
+    <!-- Font Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
-    <Navbar lang={lang} />
+    <!-- Arabic Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Main content -->
-    <main class="flex-1 container mx-auto px-4 py-10">
-      <slot />
-    </main>
+    <!-- Latin Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <Footer />
-  </body>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content={t(lang, "brand.subtitle")} />
+    <meta
+      name="keywords"
+      content="Yemen, Atlas, History, Culture, Geography, Heritage, Arabia"
+    />
+    <meta name="author" content="Yemen Atlas" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={t(lang, "brand.subtitle")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:locale" content={lang === "ar" ? "ar_YE" : "en_US"} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={t(lang, "brand.subtitle")} />
+
+    <style>
+      /* Global Identity Styles */
+      :root {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-archive-ink);
+        background: var(--color-aged-paper);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem 0;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--color-parchment);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-yemen-earth);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-mocha-brown);
+      }
+
+      /* Selection */
+      ::selection {
+        background: var(--color-yemen-earth);
+        color: var(--color-frankincense);
+      }
+
+      /* Focus Styles */
+      :focus-visible {
+        outline: 2px solid var(--color-red-sea);
+        outline-offset: 2px;
+      }
+    </style></head
+  >
 </html>
+
+<body
+  class="min-h-screen flex flex-col bg-atlas-paper text-gray-900 antialiased"
+>
+  <Navbar lang={lang} />
+
+  <!-- Main content -->
+  <main class="flex-1 container mx-auto px-4 py-10">
+    <slot />
+  </main>
+
+  <Footer lang={lang} />
+
+  <!-- Yemeni Pattern Background Overlay -->
+  <div class="pattern-overlay" aria-hidden="true"></div>
+
+  <style>
+    .pattern-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238b4513' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* Container Responsive */
+    .container {
+      max-width: 1200px;
+    }
+  </style>
+</body>

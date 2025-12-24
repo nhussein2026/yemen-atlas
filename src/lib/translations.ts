@@ -21,3 +21,23 @@ export function t(lang: Lang, key: string): string {
 
   return value;
 }
+
+// Category Translations
+export const categoryTranslations: Record<string, { en: string; ar: string }> =
+  {
+    culture: { en: "Culture", ar: "ثقافة" },
+    history: { en: "History", ar: "تاريخ" },
+    geography: { en: "Geography", ar: "جغرافيا" },
+    architecture: { en: "Architecture", ar: "عمارة" },
+    society: { en: "Society", ar: "مجتمع" },
+    economy: { en: "Economy", ar: "اقتصاد" },
+    analysis: { en: "Analysis", ar: "تحليل" },
+  };
+
+export function translateCategory(
+  category: string | undefined,
+  lang: "en" | "ar"
+): string {
+  if (!category) return lang === "en" ? "Uncategorized" : "غير مصنف";
+  return categoryTranslations[category]?.[lang] || category;
+}

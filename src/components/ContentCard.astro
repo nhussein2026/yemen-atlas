@@ -1,0 +1,106 @@
+---
+/**
+ * ContentCard Component
+ * Standard card for displaying content items (blog posts, history entries, etc.)
+ *
+ * Props:
+ * - title: Content title (string)
+ * - excerpt: Content excerpt/summary (string)
+ * - href: Link to full content (string)
+ * - date?: Publication/creation date (string)
+ * - tags?: Array of tags (string[])
+ * - category?: Category label (string)
+ * - lang: Language ('en' or 'ar')
+ */
+
+interface Props {
+  title: string;
+  excerpt: string;
+  href: string;
+  date?: string;
+  tags?: string[];
+  category?: string;
+  lang: "en" | "ar";
+}
+
+const { title, excerpt, href, date, tags, category, lang } = Astro.props;
+const isArabic = lang === "ar";
+---
+
+<article
+  class="overflow-hidden rounded-lg border border-light-stone transition-all hover:shadow-lg"
+  style="background-color: var(--color-aged-paper); border-color: var(--color-light-stone);"
+  dir={isArabic ? "rtl" : "ltr"}
+>
+  <div class="p-6">
+    <!-- Category Badge (optional) -->
+    {
+      category && (
+        <div
+          class="mb-3 inline-block px-3 py-1 rounded text-xs font-semibold"
+          style="background-color: var(--color-light-stone); color: var(--color-archive-ink);"
+        >
+          {category}
+        </div>
+      )
+    }
+
+    <!-- Title -->
+    <a href={href} class="block mb-3 hover:underline">
+      <h3
+        class="text-xl md:text-2xl font-bold transition-colors"
+        style="color: var(--color-archive-ink);"
+      >
+        {title}
+      </h3>
+    </a>
+
+    <!-- Date (optional) -->
+    {
+      date && (
+        <p class="text-sm mb-3" style="color: var(--color-yemeni-earth);">
+          {date}
+        </p>
+      )
+    }
+
+    <!-- Excerpt -->
+    <p
+      class="text-base leading-relaxed mb-4"
+      style="color: var(--color-text-dark);"
+    >
+      {excerpt}
+    </p>
+
+    <!-- Tags (optional) -->
+    {
+      tags && tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-4">
+          {tags.map((tag) => (
+            <span
+              class="text-xs px-2 py-1 rounded"
+              style="background-color: var(--color-light-stone); color: var(--color-text-dark);"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
+
+    <!-- Read More Link -->
+    <a
+      href={href}
+      class="inline-block font-semibold transition-colors"
+      style="color: var(--color-yemeni-earth);"
+    >
+      {lang === "en" ? "Read More →" : "اقرأ المزيد ←"}
+    </a>
+  </div>
+</article>
+
+<style>
+  article:hover {
+    transform: translateY(-2px);
+  }
+</style>

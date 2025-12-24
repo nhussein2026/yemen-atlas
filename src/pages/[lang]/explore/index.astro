@@ -2,7 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { assertLang } from "../../../lib/lang";
-import { getGovernorates } from "../../../lib/data";
+import { getGovernorates, getYemenInfo } from "../../../lib/data";
 
 // Static paths for English and Arabic
 export async function getStaticPaths() {
@@ -12,55 +12,209 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 assertLang(lang);
 
-// Get all city entries
+// Get all data
 const cities = await getCollection("cities");
 const governorates = getGovernorates();
+const yemen = getYemenInfo();
+const isRTL = lang === "ar";
 ---
 
 <BaseLayout
   lang={lang}
   title={lang === "en" ? "Explore Yemen" : "استكشف اليمن"}
 >
-  <h1 class="text-3xl font-bold mb-6">
-    {lang === "en" ? "Cities of Yemen" : "مدن اليمن"}
-  </h1>
+  <!-- Hero Section with Yemen Info Card -->
+  <div class="mb-30">
+    <section
+      class="bg-aged-paper border border-light-stone rounded-xl shadow-sm"
+    >
+      <div class="p-8 lg:p-12">
+        <div
+          class={`flex items-center gap-6 mb-8 ${isRTL ? "flex-row-reverse text-right" : ""}`}
+        >
+          <span class="text-6xl">{yemen.emoji}</span>
 
-  <ul class="space-y-4">
-    {
-      cities.map((city) => (
-        <li>
-          <a
-            href={`/${lang}/cities/${city.slug}`}
-            class="text-blue-600 hover:underline"
-          >
-            {city.data.name[lang]}
-          </a>
-          {city.data.summary && (
-            <p class="text-gray-700 dark:text-gray-300 text-sm mt-1">
-              {city.data.summary[lang]}
+          <div>
+            <h1
+              class="font-serif text-5xl font-bold text-deep-archive leading-tight"
+            >
+              {lang === "en" ? yemen.english_name : yemen.arabic_name}
+            </h1>
+            <p class="font-serif text-lg text-incense-smoke mt-2">
+              {
+                lang === "en"
+                  ? "A comprehensive atlas of Yemen’s land, history, and people"
+                  : "أطلس شامل لأرض اليمن وتاريخه وشعبه"
+              }
             </p>
-          )}
-        </li>
-      ))
-    }
-  </ul>
+          </div>
+        </div>
 
-  <h1 class="text-3xl font-bold mb-6 mt-12">
-    {lang === "en" ? "Governorates of Yemen" : "محافظات اليمن"}
-  </h1>
+        <!-- Yemen Info -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-light-stone pt-8"
+        >
+          {
+            [
+              {
+                labelEn: "Capital",
+                labelAr: "العاصمة",
+                value:
+                  lang === "en" ? yemen.capital_english : yemen.capital_arabic,
+              },
+              {
+                labelEn: "Area",
+                labelAr: "المساحة",
+                value: `${yemen.area_in_kilometer_square} ${lang === "en" ? "km²" : "كم²"}`,
+              },
+              { labelEn: "Currency", labelAr: "العملة", value: yemen.currency },
+              {
+                labelEn: "Region",
+                labelAr: "المنطقة",
+                value: lang === "en" ? yemen.region : "آسيا",
+              },
+            ].map((item) => (
+              <div class="text-center">
+                <p class="font-sans text-xs uppercase tracking-wide text-incense-smoke">
+                  {lang === "en" ? item.labelEn : item.labelAr}
+                </p>
+                <p class="font-serif text-xl font-semibold text-deep-archive mt-2">
+                  {item.value}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <ul class="space-y-4">
-    {
-      governorates.map((governorate) => (
-        <li>
+  <!-- Governorates Section -->
+  <section class="mb-30">
+    <div
+      class={`flex items-center gap-4 mb-12 ${isRTL ? "flex-row-reverse text-right" : ""}`}
+    >
+      <div class="w-1 h-10 bg-terracotta rounded-full"></div>
+      <h2 class="font-serif text-4xl font-semibold text-deep-archive">
+        {lang === "en" ? "Governorates of Yemen" : "محافظات اليمن"}
+      </h2>
+      <span class="font-sans text-incense-smoke">
+        ({governorates.length})
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        governorates.map((governorate) => (
           <a
             href={`/${lang}/explore/${governorate.id}`}
-            class="text-blue-600 hover:underline"
+            class="bg-white border border-light-stone rounded-lg p-6 hover:shadow-lg transition-shadow"
           >
-            {lang === "en" ? governorate.name_en : governorate.name_ar}
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-xl font-bold text-deep-archive">
+                {lang === "en" ? governorate.name_en : governorate.name_ar}
+              </h3>
+
+              <span class="font-sans text-xs bg-desert-sand text-deep-archive px-3 py-1 rounded-full">
+                {governorate.districts.length}{" "}
+                {lang === "en" ? "Districts" : "مديريات"}
+              </span>
+            </div>
+
+            <p class="font-serif text-sm text-incense-smoke mb-4">
+              {lang === "en" ? "Key Districts:" : "المديريات الرئيسية:"}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              {governorate.districts.slice(0, 3).map((d) => (
+                <span class="font-sans text-xs border border-light-stone px-2 py-1 rounded">
+                  {lang === "en" ? d.name_en : d.name_ar}
+                </span>
+              ))}
+            </div>
+
+            <span class="font-sans text-sm font-semibold text-terracotta">
+              {lang === "en" ? "Explore →" : "استكشف ←"}
+            </span>
           </a>
-        </li>
-      ))
-    }
-  </ul>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Cities Section (if available) -->
+  {
+    cities.length > 0 && (
+      <section class="mb-30">
+        <h2 class="font-serif text-4xl font-semibold text-deep-archive mb-12">
+          {lang === "en" ? "Featured Cities" : "المدن المميزة"}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {cities.slice(0, 4).map((city) => (
+            <a
+              href={`/${lang}/cities/${city.slug}`}
+              class="bg-white border border-light-stone rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+            >
+              <div class="h-48 bg-desert-sand/40 flex items-end p-6">
+                <div>
+                  <h3 class="font-serif text-2xl font-bold text-deep-archive">
+                    {city.data.name[lang]}
+                  </h3>
+                  {city.data.summary && (
+                    <p class="font-serif text-sm text-mountain-stone mt-2 line-clamp-2">
+                      {city.data.summary[lang]}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section
+    class="bg-aged-paper border border-light-stone rounded-xl p-8 lg:p-12"
+  >
+    <h3 class="font-serif text-3xl font-semibold text-deep-archive mb-8">
+      {lang === "en" ? "Quick Facts" : "حقائق سريعة"}
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        [
+          {
+            labelEn: "Governorates",
+            labelAr: "المحافظات",
+            value: governorates.length,
+          },
+          {
+            labelEn: "Districts",
+            labelAr: "المديريات",
+            value: governorates.reduce((s, g) => s + g.districts.length, 0),
+          },
+          {
+            labelEn: "Sub-districts",
+            labelAr: "العزل",
+            value: governorates.reduce(
+              (s, g) =>
+                s + g.districts.reduce((d, x) => d + (x.uzaal?.length || 0), 0),
+              0
+            ),
+          },
+        ].map((stat) => (
+          <div class="bg-white border border-light-stone rounded-lg p-6 text-center">
+            <p class="font-sans text-xs uppercase tracking-wide text-incense-smoke mb-2">
+              {lang === "en" ? stat.labelEn : stat.labelAr}
+            </p>
+            <p class="font-serif text-4xl font-bold text-terracotta">
+              {stat.value}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>

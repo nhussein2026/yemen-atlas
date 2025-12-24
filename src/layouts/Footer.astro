@@ -1,9 +1,29 @@
 ---
+import { assertLang } from "../lib/lang";
+import { t } from "../lib/translations";
+
+const { lang } = Astro.params;
+assertLang(lang);
+// Static paths for English and Arabic
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
 const year = new Date().getFullYear();
+const site = t(lang, "site");
 ---
 
-<footer class="border-t border-gray-200 bg-white">
+<footer
+  lang={lang}
+  class="relative border-t border-gray-200"
+  style="background: linear-gradient(135deg, var(--atlas-paper) 0%, #f9f5f0 100%);"
+>
+  <div
+    class="absolute top-[-2px] left-0 right-0 h-1
+         bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,var(--atlas-terracotta)_10px,var(--atlas-terracotta)_20px)]
+         opacity-60"
+  >
+  </div>
   <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-600">
-    © {year} Yemen Atlas
+    {site.title} | © {year}
   </div>
 </footer>

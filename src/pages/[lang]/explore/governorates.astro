@@ -1,23 +1,44 @@
 ---
-import { getGovernorates } from "../../../lib/data";
+import { getGovernorates, getGovernoratesWithSlug } from "../../../lib/data";
+import { t } from "../../../lib/i18n";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ContentPageHeader from "../../../components/ContentPageHeader.astro";
 
-const governorates = await getGovernorates();
+export async function getStaticPaths() {
+  return ["en", "ar"].map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
+
+const { lang } = Astro.props;
+const governorates = getGovernoratesWithSlug();
 ---
 
 <BaseLayout>
-  <div class="container">
-    <h1>Governorates</h1>
-    <ul>
+  <ContentPageHeader
+    title={t(lang, "governorates")}
+    description={t(lang, "governorates_description")}
+    {lang}
+  />
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         governorates.map((governorate) => (
-          <li>
-            <a href={`/explore/governorates/${governorate.slug}`}>
-              {governorate.data.name}
-            </a>
-          </li>
+          <a
+            href={`/${lang}/explore/governorates/${governorate.slug}`}
+            class="p-6 bg-aged-paper border border-light-stone rounded-lg hover:shadow-lg transition-shadow"
+          >
+            <h3 class="text-lg font-semibold text-archive-ink mb-2">
+              {lang === "ar" ? governorate.name_ar : governorate.name_en}
+            </h3>
+            <p class="text-text-dark/70 text-sm">
+              {governorate.districts?.length || 0} {t(lang, "districts")}
+            </p>
+          </a>
         ))
       }
-    </ul>
+    </div>
   </div>
 </BaseLayout>

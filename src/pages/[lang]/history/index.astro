@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ContentPageHeader from "../../../components/ContentPageHeader.astro";
+import ContentCard from "../../../components/ContentCard.astro";
 import { getCollection } from "astro:content";
 import { assertLang } from "../../../lib/lang";
 
@@ -11,30 +13,50 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 assertLang(lang);
 
-// Get all city entries
-const history_entries = await getCollection("history");
+// Get all history entries
+const historyEntries = await getCollection("history");
+
+const pageTitle = lang === "en" ? "History" : "التاريخ";
+const pageDescription =
+  lang === "en"
+    ? "Explore Yemen's rich historical heritage, ancient kingdoms, and cultural landmarks."
+    : "استكشف التراث التاريخي الغني لليمن والممالك القديمة والمعالم الثقافية.";
 ---
 
-<BaseLayout lang={lang} title={lang === "en" ? "Cities of Yemen" : "مدن اليمن"}>
-  <h1 class="text-3xl font-bold mb-6">
-    {lang === "en" ? "Cities of Yemen" : "مدن اليمن"}
-  </h1>
+<BaseLayout lang={lang} title={pageTitle}>
+  <ContentPageHeader
+    title={pageTitle}
+    description={pageDescription}
+    lang={lang}
+  />
 
-  <ul class="space-y-4">
+  <div
+    class={`${lang === "ar" ? "rtl" : "ltr"}`}
+    dir={lang === "ar" ? "rtl" : "ltr"}
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        historyEntries.map((entry) => (
+          <ContentCard
+            title={entry.data.title[lang]}
+            excerpt={entry.data.summary[lang]}
+            href={`/${lang}/history/${entry.slug}`}
+            date={entry.data.period?.[lang]}
+            category={lang === "en" ? "History" : "التاريخ"}
+            lang={lang}
+          />
+        ))
+      }
+    </div>
+
     {
-      history_entries.map((entry) => (
-        <li>
-          <a
-            href={`/${lang}/cities/${entry.slug}`}
-            class="text-blue-600 hover:underline"
-          ></a>
-          {entry.data.summary && (
-            <p class="text-gray-700 dark:text-gray-300 text-sm mt-1">
-              {entry.data.summary[lang]}
-            </p>
-          )}
-        </li>
-      ))
+      historyEntries.length === 0 && (
+        <p class="text-center py-12" style="color: var(--color-text-dark);">
+          {lang === "en"
+            ? "No historical entries yet."
+            : "لا توجد إدخالات تاريخية حتى الآن."}
+        </p>
+      )
     }
-  </ul>
+  </div>
 </BaseLayout>

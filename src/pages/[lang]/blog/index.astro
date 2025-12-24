@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ContentPageHeader from "../../../components/ContentPageHeader.astro";
+import ContentCard from "../../../components/ContentCard.astro";
 import { getCollection } from "astro:content";
 import { assertLang } from "../../../lib/lang";
 
@@ -11,31 +13,59 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 assertLang(lang);
 
-// Get all blog posts
+// Get all blog posts and sort by date (newest first)
 const blogs = await getCollection("blog");
-console.log(" blogs: ", blogs);
+const sortedBlogs = blogs.sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+
+const pageTitle = lang === "en" ? "Blog" : "المدونة";
+const pageDescription =
+  lang === "en"
+    ? "Insights and analysis on Yemen's history, culture, and current developments."
+    : "رؤى وتحليلات حول تاريخ اليمن وثقافته والتطورات الحالية.";
 ---
 
-<BaseLayout lang={lang} title={lang === "en" ? "Blog" : "المدونة"}>
-  <h1 class="text-3xl font-bold mb-6">{lang === "en" ? "Blog" : "المدونة"}</h1>
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
+  <ContentPageHeader
+    title={pageTitle}
+    description={pageDescription}
+    lang={lang}
+  />
 
-  <ul class="space-y-4">
+  <div
+    class={`container mx-auto px-4 py-8 ${lang === "ar" ? "rtl" : "ltr"}`}
+    dir={lang === "ar" ? "rtl" : "ltr"}
+  >
     {
-      blogs.map((post) => (
-        <li>
-          <a
-            href={`/${lang}/blog/${post.slug}`}
-            class="text-blue-600 hover:underline"
-          >
-            {post.data.title[lang]}
-          </a>
-          {post.data.summary && (
-            <p class="text-gray-700 dark:text-gray-300 text-sm mt-1">
-              {post.data.summary[lang]}
-            </p>
-          )}
-        </li>
-      ))
+      sortedBlogs.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedBlogs.map((post) => (
+            <ContentCard
+              title={post.data.title[lang]}
+              excerpt={post.data.excerpt[lang]}
+              href={`/${lang}/blog/${post.slug}`}
+              date={post.data.publishedAt.toLocaleDateString(
+                lang === "ar" ? "ar-SA" : "en-US",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              )}
+              tags={post.data.tags}
+              category={post.data.category}
+              lang={lang}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center py-12 text-gray-600 dark:text-gray-400">
+          {lang === "en"
+            ? "No blog posts yet. Check back soon!"
+            : "لا توجد منشورات مدونة حتى الآن. تحقق مرة أخرى قريبًا!"}
+        </p>
+      )
     }
-  </ul>
+  </div>
 </BaseLayout>

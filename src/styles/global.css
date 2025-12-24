@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+:root {
+    --color-archive-ink: #1B2430;
+    --color-aged-paper: #F6F4EF;
+    --color-light-stone: #E9E6DF;
+    --color-yemeni-earth: #8B6F47;
+    --color-critical-oxide: #6A2E2A;
+    --color-text-dark: #222222;
+    --color-text-light: #E6E6E6;
+
+    /* new color settings  */
+    --atlas-sand: #C8A882;
+    --atlas-terracotta: #A84325;
+    --atlas-stone: #5C5552;
+    --atlas-paper: #F5F1E8;
+    --atlas-smoke: #8B7E74;
+    --atlas-copper: #B8956A;
+    --atlas-archive: #2C2420;
+    --atlas-border: #E8E3D8;
+}
+
+/* Base site styles */
+html,
+body {
+    background-color: var(--color-aged-paper);
+    color: var(--color-text-dark);
+}
+
+/* Helper classes */
+.site-bg {
+    background-color: var(--color-aged-paper);
+}
+
+.brand-color {
+    color: var(--color-archive-ink);
+}
+
+.accent {
+    color: var(--color-yemeni-earth);
+}
+
+.btn-accent {
+    background-color: var(--color-yemeni-earth);
+    color: var(--color-text-light);
+}

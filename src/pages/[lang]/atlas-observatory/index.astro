@@ -1,20 +1,61 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ContentPageHeader from "../../../components/ContentPageHeader.astro";
+import ContentCard from "../../../components/ContentCard.astro";
 import { assertLang } from "../../../lib/lang";
 
-const { lang } = Astro.params;
-assertLang(lang);
 // Static paths for English and Arabic
 export async function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
 }
+
+const { lang } = Astro.params;
+assertLang(lang);
+
+const pageTitle = lang === "en" ? "Atlas Observatory" : "مرصد أطلس";
+const pageDescription =
+  lang === "en"
+    ? "Real-time monitoring and analysis of Yemen's geographic, social, and political developments."
+    : "المراقبة والتحليل في الوقت الفعلي للتطورات الجغرافية والاجتماعية والسياسية في اليمن.";
+
+// Placeholder for future observatory data/content
+const observatoryItems: any[] = [];
 ---
 
-<BaseLayout
-  lang={lang}
-  title={lang === "en" ? "Cities of Yemen" : "مرصد اطلس "}
->
-  <h1 class="text-3xl font-bold mb-6">
-    {lang === "en" ? "Cities of Yemen" : "مرصد اطلس "}
-  </h1>
+<BaseLayout lang={lang} title={pageTitle}>
+  <ContentPageHeader
+    title={pageTitle}
+    description={pageDescription}
+    lang={lang}
+  />
+
+  <div
+    class={`${lang === "ar" ? "rtl" : "ltr"}`}
+    dir={lang === "ar" ? "rtl" : "ltr"}
+  >
+    {
+      observatoryItems.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {observatoryItems.map((item) => (
+            <ContentCard
+              title={item.title[lang]}
+              excerpt={item.excerpt[lang]}
+              href={`/${lang}/atlas-observatory/${item.slug}`}
+              date={item.date}
+              category={lang === "en" ? "Observatory" : "مرصد"}
+              lang={lang}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p style="color: var(--color-text-dark); font-size: 1.125rem;">
+            {lang === "en"
+              ? "Observatory content coming soon. Check back for real-time analysis and monitoring."
+              : "محتوى المرصد قريباً. تابعنا للحصول على التحليل والمراقبة في الوقت الفعلي."}
+          </p>
+        </div>
+      )
+    }
+  </div>
 </BaseLayout>

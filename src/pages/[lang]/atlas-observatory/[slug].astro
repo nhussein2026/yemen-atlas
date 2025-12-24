@@ -1,0 +1,16 @@
+---
+import { assertLang } from "../../../lib/lang";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  return [];
+}
+
+const { lang } = Astro.params;
+assertLang(lang);
+---
+
+<BaseLayout lang={lang} title="Atlas Observatory">
+  <h1>Atlas Observatory</h1>
+  <p>Coming soon...</p>
+</BaseLayout>

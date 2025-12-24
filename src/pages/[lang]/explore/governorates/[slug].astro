@@ -1,21 +1,27 @@
 ---
-import { getGovernorates } from "../../../../lib/data";
+import { getGovernoratesWithSlug } from "../../../../lib/data";
+import { t } from "../../../../lib/i18n";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const governorates = await getGovernorates();
-  return governorates.map((governorate) => ({
-    params: { slug: governorate.slug },
-    props: { governorate },
-  }));
+  const governorates = getGovernoratesWithSlug();
+  return governorates.flatMap((governorate) =>
+    ["en", "ar"].map((lang) => ({
+      params: { lang, slug: governorate.slug },
+      props: { governorate, lang },
+    }))
+  );
 }
 
-const { governorate } = Astro.props;
+const { governorate, lang } = Astro.props;
+const name = lang === "ar" ? governorate.name_ar : governorate.name_en;
 ---
 
 <BaseLayout>
-  <div class="container">
-    <h1>{governorate.data.name}</h1>
-    <p>{governorate.data.description}</p>
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-archive-ink mb-4">{name}</h1>
+    <p class="text-text-dark/70">
+      Districts: {governorate.districts?.length || 0}
+    </p>
   </div>
 </BaseLayout>

@@ -45,8 +45,21 @@ export const collections = {
     schema: z.object({
       title: i18nString,
       excerpt: i18nString,
-      publishedAt: z.date(),
+      content: i18nString.optional(),
+      publishedAt: z.coerce.date(),
       tags: z.array(z.string()).optional(),
+      category: z
+        .enum([
+          "culture",
+          "history",
+          "geography",
+          "architecture",
+          "society",
+          "economy",
+          "analysis",
+        ])
+        .optional(),
+      sources: z.array(z.string()).optional(),
     }),
   }),
 };

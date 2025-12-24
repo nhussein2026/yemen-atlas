@@ -10,32 +10,174 @@ const currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, "");
 const nav_menu = t(lang, "nav");
 ---
 
-<header dir="ltr" class="border-b border-gray-200 bg-white">
-  <nav class="container mx-auto flex items-center justify-between px-4 py-4">
-    <!-- Brand -->
-    <a
-      href={l()}
-      class="text-lg font-semibold tracking-tight hover:text-blue-600"
-    >
-      Yemen Atlas
-    </a>
+<header
+  dir="rtl"
+  class="relative z-50 shadow-sm"
+  style="background: linear-gradient(135deg, var(--atlas-paper) 0%, #f9f5f0 100%);"
+>
+  <!-- Yemeni Pattern Border -->
+  <div
+    class="absolute bottom-[-2px] left-0 right-0 h-1 bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,var(--atlas-terracotta)_10px,var(--atlas-terracotta)_20px)] opacity-60"
+  >
+  </div>
 
-    <!-- Navigation + Language Toggle -->
-    <div class="flex items-center gap-6">
-      <ul class="flex items-center gap-6 text-sm font-medium">
+  <nav class="container mx-auto px-4 py-3 md:py-4">
+    <div class="flex items-center justify-between gap-4">
+      <!-- Brand with Logo -->
+      <div class="flex items-center gap-3 md:gap-4">
+        <!-- Logo Link -->
+        <a
+          href={l()}
+          class="group relative flex-shrink-0"
+          aria-label="Yemen Atlas - Home"
+        >
+          <div class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+            <!-- Logo SVG -->
+            <svg
+              class="w-full h-full text-[var(--atlas-archive)] transition-all duration-300 group-hover:text-[var(--atlas-terracotta)] group-hover:scale-105 group-hover:rotate-5 drop-shadow-md"
+              viewBox="0 0 120 120"
+              role="img"
+              aria-labelledby="logo-title"
+            >
+              <title id="logo-title">Yemen Atlas Logo</title>
+              <circle
+                cx="60"
+                cy="60"
+                r="55"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"></circle>
+              <path d="M60 10 L65 55 L60 60 L55 55 Z" fill="currentColor"
+              ></path>
+              <path d="M110 60 L65 65 L60 60 L65 55 Z" fill="currentColor"
+              ></path>
+              <path d="M60 110 L55 65 L60 60 L65 65 Z" fill="currentColor"
+              ></path>
+              <path d="M10 60 L55 55 L60 60 L55 65 Z" fill="currentColor"
+              ></path>
+              <circle cx="60" cy="60" r="8" fill="currentColor"></circle>
+            </svg>
+            <!-- Logo Glow Effect -->
+            <div
+              class="absolute inset-0 rounded-full bg-[radial-gradient(circle,var(--atlas-terracotta)_0%,transparent_70%)] opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10"
+            >
+            </div>
+          </div>
+        </a>
+
+        <!-- Brand Text -->
+        <div class="overflow-hidden">
+          <a href={l()} class="group">
+            <h1 class="flex flex-col leading-tight gap-0.5">
+              <span
+                class="font-serif text-xl sm:text-2xl font-bold text-[var(--atlas-archive)] bg-gradient-to-br from-[var(--atlas-terracotta)] to-[var(--atlas-stone)] bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] tracking-tight whitespace-nowrap overflow-hidden text-ellipsis"
+              >
+                Yemen Atlas
+              </span>
+            </h1>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden flex items-center justify-center w-10 h-10 border-1.5 border-[var(--atlas-terracotta)] rounded-lg bg-[var(--atlas-paper)] text-[var(--atlas-terracotta)] transition-all duration-300 hover:bg-[var(--atlas-terracotta)] hover:text-[var(--atlas-paper)] hover:rotate-90 z-60"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12H21" stroke-linecap="round"></path>
+          <path d="M3 6H21" stroke-linecap="round"></path>
+          <path d="M3 18H21" stroke-linecap="round"></path>
+        </svg>
+      </button>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-6">
+        <!-- Navigation Menu -->
+        <ul class="flex items-center gap-3 list-none m-0 p-0">
+          {
+            nav_menu.map(({ label, link, icon }) => {
+              const fullHref = link === "/" ? `/${lang}` : `/${lang}/${link}`;
+              const isActive = Astro.url.pathname === fullHref;
+              return (
+                <li class="relative">
+                  <a
+                    href={fullHref}
+                    class={`flex items-center gap-1.5 px-3.5 py-2 font-sans text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
+                      isActive
+                        ? "text-[var(--atlas-terracotta)] font-semibold bg-gradient-to-br from-[rgba(168,67,37,0.1)] to-[rgba(92,85,82,0.05)]"
+                        : "text-[var(--atlas-archive)] hover:text-[var(--atlas-terracotta)] hover:bg-gradient-to-br from-[var(--atlas-paper)] to-[#f9f5f0] hover:-translate-y-0.5"
+                    }`}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {icon && (
+                      <span class="text-base" aria-hidden="true">
+                        {icon}
+                      </span>
+                    )}
+                    <span>{label}</span>
+                    {isActive && (
+                      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-atlas-terracotta rounded-full" />
+                    )}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+
+        <!-- Language Toggle -->
+        <div class="relative ml-2">
+          <a
+            href={`/${toggleLang}${currentPath}`}
+            class="flex items-center gap-1.5 px-3.5 py-2 bg-[var(--atlas-paper)] border-1.5 border-[var(--atlas-terracotta)] rounded-lg font-sans text-sm font-medium text-[var(--atlas-terracotta)] transition-all duration-300 hover:bg-[var(--atlas-terracotta)] hover:text-[var(--atlas-paper)] hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
+            aria-label={lang === "ar"
+              ? "Switch to English"
+              : "التغيير إلى العربية"}
+            title={lang === "ar" ? "English" : "العربية"}
+            style="box-shadow: 0 4px 12px rgba(168, 67, 37, 0.2);"
+          >
+            <span class="hidden sm:inline font-bold"
+              >{toggleLang.toUpperCase()}</span
+            >
+            <span class="text-xs">
+              {lang === "ar" ? "English" : "العربية"}
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-navigation"
+      class="hidden md:hidden absolute top-full left-0 right-0 bg-[var(--atlas-paper)] border-t border-[var(--atlas-border)] border-b-2 border-[var(--atlas-terracotta)] shadow-lg z-40 animate-fadeInDown"
+    >
+      <ul class="flex flex-col gap-2 list-none m-0 p-4">
         {
-          nav_menu.map(({ label, link }) => {
+          nav_menu.map(({ label, link, icon }) => {
             const fullHref = link === "/" ? `/${lang}` : `/${lang}/${link}`;
             const isActive = Astro.url.pathname === fullHref;
             return (
-              <li>
+              <li class="w-full">
                 <a
                   href={fullHref}
-                  class={`hover:text-blue-600  ${
-                    isActive ? "text-blue font-semibold" : ""
+                  class={`flex items-center gap-3 px-4 py-3.5 w-full font-sans text-[15px] font-medium rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? "text-[var(--atlas-terracotta)] font-semibold bg-gradient-to-br from-[rgba(168,67,37,0.1)] to-[rgba(92,85,82,0.05)] border-l-3 border-[var(--atlas-terracotta)]"
+                      : "text-[var(--atlas-archive)] hover:text-[var(--atlas-terracotta)] hover:bg-[var(--atlas-paper)]"
                   }`}
+                  aria-current={isActive ? "page" : undefined}
                 >
-                  {label}
+                  {icon && (
+                    <span class="text-lg w-6 text-center" aria-hidden="true">
+                      {icon}
+                    </span>
+                  )}
+                  <span>{label}</span>
                 </a>
               </li>
             );
@@ -43,13 +185,150 @@ const nav_menu = t(lang, "nav");
         }
       </ul>
 
-      <!-- Language Toggle -->
-      <a
-        href={`/${toggleLang}${currentPath}`}
-        class="ml-4 px-2 py-1 border rounded text-sm hover:bg-gray-100"
-      >
-        {toggleLang.toUpperCase()}
-      </a>
+      <!-- Mobile Language Toggle -->
+      <div class="p-4 border-t border-[var(--atlas-border)]">
+        <a
+          href={`/${toggleLang}${currentPath}`}
+          class="flex items-center gap-3 px-4 py-3.5 w-full bg-[var(--atlas-paper)] border-1.5 border-[var(--atlas-terracotta)] rounded-lg font-sans text-[15px] font-medium text-[var(--atlas-terracotta)] transition-all duration-300 hover:bg-[var(--atlas-terracotta)] hover:text-[var(--atlas-paper)]"
+          aria-label={lang === "ar"
+            ? "Switch to English"
+            : "التغيير إلى العربية"}
+        >
+          <span>
+            {lang === "ar" ? "Switch to English" : "التغيير إلى العربية"}
+          </span>
+        </a>
+      </div>
     </div>
   </nav>
 </header>
+
+<style>
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInDown {
+    animation: fadeInDown 0.3s ease-out;
+  }
+
+  /* Container responsive */
+  .container {
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle functionality
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileNavigation = document.getElementById("mobile-navigation");
+
+      if (mobileMenuToggle && mobileNavigation) {
+        mobileMenuToggle.addEventListener("click", () => {
+          const isExpanded =
+            mobileMenuToggle.getAttribute("aria-expanded") === "true";
+          mobileMenuToggle.setAttribute("aria-expanded", !isExpanded);
+          mobileNavigation.classList.toggle("hidden");
+
+          // Toggle menu icon
+          const menuIcon = mobileMenuToggle.querySelector("svg");
+          if (menuIcon) {
+            if (!isExpanded) {
+              menuIcon.innerHTML = `
+                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              `;
+            } else {
+              menuIcon.innerHTML = `
+                <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              `;
+            }
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (event) => {
+          if (
+            !mobileMenuToggle.contains(event.target) &&
+            !mobileNavigation.contains(event.target) &&
+            !mobileNavigation.classList.contains("hidden")
+          ) {
+            mobileMenuToggle.setAttribute("aria-expanded", "false");
+            mobileNavigation.classList.add("hidden");
+
+            // Reset menu icon
+            const menuIcon = mobileMenuToggle.querySelector("svg");
+            if (menuIcon) {
+              menuIcon.innerHTML = `
+                <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              `;
+            }
+          }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            !mobileNavigation.classList.contains("hidden")
+          ) {
+            mobileMenuToggle.setAttribute("aria-expanded", "false");
+            mobileNavigation.classList.add("hidden");
+
+            const menuIcon = mobileMenuToggle.querySelector("svg");
+            if (menuIcon) {
+              menuIcon.innerHTML = `
+                <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              `;
+            }
+          }
+        });
+      }
+    });
+  }
+</script>

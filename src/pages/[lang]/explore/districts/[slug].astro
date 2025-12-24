@@ -1,7 +1,7 @@
 ---
 import { assertLang } from "../../../../lib/lang";
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
-import { getDistricts } from "../../../../lib/data";
+import { getDistricts, getGovernorates } from "../../../../lib/data";
 
 export async function getStaticPaths() {
   const districts = getDistricts();
@@ -24,35 +24,190 @@ if (!district) {
   throw new Error(`District not found: ${slug}`);
 }
 
-const name = lang === 'en' ? district.name_en : district.name_ar;
+// Find parent governorate
+const governorates = getGovernorates();
+const parentGovernorate = governorates.find((g) =>
+  g.districts.some((d) => d.id === district?.id)
+);
+
+const name = lang === "en" ? district.name_en : district.name_ar;
+const governorateName = parentGovernorate
+  ? lang === "en"
+    ? parentGovernorate.name_en
+    : parentGovernorate.name_ar
+  : "";
+
+const isRTL = lang === "ar";
+
+// Calculate stats
+const subDistrictCount = district?.uzaal?.length || 0;
+const villageCount = district?.uzaal?.reduce((sum, u) => sum + (u?.villages?.length || 0), 0) || 0;
 ---
 
-<BaseLayout
-  lang={lang}
-  title={name}
->
-  <h1 class="text-3xl font-bold mb-4">{name}</h1>
+<BaseLayout lang={lang} title={name}>
+  <div class={`max-w-6xl mx-auto px-4 py-8 ${isRTL ? "rtl" : "ltr"}`}>
+    <!-- Breadcrumb Navigation -->
+    <nav class="mb-8 flex items-center gap-2 text-sm text-gray-600">
+      <a href={`/${lang}/explore`} class="text-blue-600 hover:text-blue-800 hover:underline">
+        {lang === "en" ? "Explore" : "استكشف"}
+      </a>
+      <span>/</span>
+      {parentGovernorate && (
+        <>
+          <a href={`/${lang}/explore/${parentGovernorate.id}`} class="text-blue-600 hover:text-blue-800 hover:underline">
+            {governorateName}
+          </a>
+          <span>/</span>
+        </>
+      )}
+      <span class="text-gray-900 font-semibold">{name}</span>
+    </nav>
 
-    <h2 class="text-2xl font-bold mb-4 mt-8">
-        {lang === 'en' ? 'Sub-districts' : 'العزل'}
-    </h2>
+    <!-- Header Section -->
+    <header class="mb-12">
+      <div class={`flex items-center gap-4 mb-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+        <div class="w-2 h-14 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full"></div>
+        <div>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900">{name}</h1>
+          {parentGovernorate && (
+            <p class="text-lg text-gray-600 mt-2">
+              {lang === "en" ? "Part of" : "جزء من"} <span class="font-semibold text-blue-600">{governorateName}</span>
+            </p>
+          )}
+        </div>
+      </div>
+    </header>
 
-    <ul class="space-y-4">
-        {
-            district.uzaal.map((uzlah) => (
-                <li>
-                    <h3 class="text-xl font-bold">{lang === 'en' ? uzlah.name_en : uzlah.name_ar}</h3>
-                    <ul class="space-y-2 ml-4 mt-2">
-                        {
-                            uzlah.villages.map((village) => (
-                                <li>
-                                    {lang === 'en' ? village.name_en : village.name_ar}
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </li>
+    <!-- Statistics Cards -->
+    {subDistrictCount > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white p-8 rounded-xl shadow-lg">
+          <p class="text-indigo-100 text-sm uppercase tracking-wide mb-2">
+            {lang === "en" ? "Sub-Districts (Uzaal)" : "العزل"}
+          </p>
+          <p class="text-5xl font-bold">{subDistrictCount}</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-xl shadow-lg">
+          <p class="text-purple-100 text-sm uppercase tracking-wide mb-2">
+            {lang === "en" ? "Villages" : "القرى"}
+          </p>
+          <p class="text-5xl font-bold">{villageCount}</p>
+        </div>
+      </div>
+    )}
+
+    <!-- Sub-districts Section -->
+    {subDistrictCount > 0 && (
+      <section class="mb-12">
+        <div class={`flex items-center gap-3 mb-8 ${isRTL ? "flex-row-reverse" : ""}`}>
+          <div class="w-1 h-10 bg-blue-600 rounded-full"></div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+            {lang === "en" ? `Sub-Districts (${subDistrictCount})` : `العزل (${subDistrictCount})`}
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          {
+            district?.uzaal && district.uzaal.map((uzlah, index) => (
+              <article class="bg-[#E9E6DF] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-blue-200">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-6">
+                  <div class={`flex items-center gap-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-white/20">
+                        <span class="text-xl font-bold">{index + 1}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">{lang === "en" ? uzlah.name_en : uzlah.name_ar}</h3>
+                      <p class="text-blue-100 text-sm mt-1">
+                        {uzlah.villages?.length || 0} {lang === "en" ? "villages" : "قرية"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Villages Grid -->
+                <div class="p-8">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {uzlah.villages && uzlah.villages.map((village) => (
+                      <div class="group flex items-start gap-3 p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors border border-gray-200 hover:border-blue-300">
+                        <svg
+                          class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        <span class="text-gray-800 font-medium group-hover:text-blue-700 transition-colors">
+                          {lang === "en" ? village.name_en : village.name_ar}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))
-        }
-    </ul>
+          }
+        </div>
+      </section>
+    )}
+
+    <!-- Summary Section -->
+    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-12 border border-blue-200">
+      <h3 class="text-xl font-bold text-gray-900 mb-4">
+        {lang === "en" ? "District Summary" : "ملخص المديرية"}
+      </h3>
+      <div class={`grid grid-cols-1 md:grid-cols-3 gap-6 ${isRTL ? "text-right" : ""}`}>
+        <div>
+          <p class="text-gray-600 text-sm uppercase tracking-wide mb-2">
+            {lang === "en" ? "Total Sub-Districts" : "إجمالي العزل"}
+          </p>
+          <p class="text-3xl font-bold text-blue-600">{subDistrictCount}</p>
+        </div>
+        <div>
+          <p class="text-gray-600 text-sm uppercase tracking-wide mb-2">
+            {lang === "en" ? "Total Villages" : "إجمالي القرى"}
+          </p>
+          <p class="text-3xl font-bold text-indigo-600">{villageCount}</p>
+        </div>
+        <div>
+          <p class="text-gray-600 text-sm uppercase tracking-wide mb-2">
+            {lang === "en" ? "Governorate" : "المحافظة"}
+          </p>
+          <p class="text-lg font-bold text-purple-600">{governorateName || "N/A"}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class={`flex gap-4 pt-8 border-t border-gray-200 ${isRTL ? "flex-row-reverse" : ""}`}>
+      {parentGovernorate && (
+        <a
+          href={`/${lang}/explore/${parentGovernorate.id}`}
+          class={`inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-semibold ${isRTL ? "flex-row-reverse" : ""}`}
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>{lang === "en" ? "Back to Governorate" : "العودة للمحافظة"}</span>
+        </a>
+      )}
+      <a
+        href={`/${lang}/explore`}
+        class={`inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold ${isRTL ? "flex-row-reverse" : ""}`}
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
+        </svg>
+        <span>{lang === "en" ? "Back to Explore" : "العودة للاستكشاف"}</span>
+      </a>
+    </div>
+  </div>
 </BaseLayout>
+   

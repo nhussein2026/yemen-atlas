@@ -1,7 +1,46 @@
 {
     "site": {
-        "title": "Yemen Atlas",
-        "description": "An evidence-based documentation platform on Yemen"
+        "title": "أطلس اليمن",
+        "description": "منصة توثيق قائمة على الأدلة حول اليمن"
+    },
+    "brand": {
+        "name": "Yemen Atlas",
+        "shortName": "Yemen Atlas",
+        "tagline": "A Comprehensive Atlas of Yemen",
+        "subtitle": "Exploring Yemen’s history, culture, geography, and heritage through evidence-based documentation.",
+        "author": "Yemen Atlas",
+        "language": "en",
+        "locale": "en_US",
+        "dir": "ltr"
+    },
+    "seo": {
+        "description": "Yemen Atlas is a comprehensive digital platform documenting Yemen’s history, culture, geography, and heritage with academic accuracy and neutrality.",
+        "keywords": [
+            "Yemen",
+            "Yemen Atlas",
+            "Yemeni History",
+            "Yemeni Culture",
+            "Geography of Yemen",
+            "Arabian Peninsula",
+            "Middle East History",
+            "Yemen Heritage",
+            "Ancient Yemen",
+            "Sabaean Kingdom"
+        ],
+        "themeColor": "#C8A882"
+    },
+    "social": {
+        "og": {
+            "title": "Yemen Atlas – History, Culture & Geography",
+            "description": "An evidence-based digital atlas documenting Yemen’s rich history, culture, and geography.",
+            "type": "website",
+            "image": "/images/og-image.jpg"
+        },
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Yemen Atlas",
+            "description": "Exploring Yemen’s history, culture, and geography through a scholarly digital atlas."
+        }
     },
     "nav": [
         {
@@ -28,5 +67,60 @@
     "home": {
         "heading": "Welcome to Yemen Atlas",
         "intro": "An evidence-based documentation platform."
+    },
+    "about": {
+        "title": "About Yemen Atlas",
+        "intro": "Yemen Atlas is an independent digital platform dedicated to documenting, organizing, and presenting information about Yemen in a structured, neutral, and evidence-based manner. The project was created in response to the growing need for a reliable reference that brings together verified data, historical records, geographic information, and documented events related to Yemen—free from political alignment, emotional framing, or unverified narratives.",
+        "mission": {
+            "title": "Our Mission",
+            "content": "Our mission is to provide clear, factual, and accessible information about Yemen by documenting events using verifiable sources, preserving historical and geographic data in a structured digital format, supporting research and education, and contributing to transparency and informed understanding. Yemen Atlas does not seek to influence opinions or promote agendas; its role is to record, organize, and present information responsibly."
+        },
+        "principles": {
+            "title": "Our Principles",
+            "items": [
+                {
+                    "title": "Neutrality",
+                    "description": "All content is presented without political, ideological, or sectarian bias. Language and visual design are carefully chosen to maintain objectivity and professionalism."
+                },
+                {
+                    "title": "Accuracy",
+                    "description": "Information is collected from credible sources and reviewed to ensure clarity and correctness. Where uncertainty exists, it is clearly indicated."
+                },
+                {
+                    "title": "Transparency",
+                    "description": "Sources, references, and methodologies are documented whenever possible, allowing users to understand how information is collected and presented."
+                },
+                {
+                    "title": "Accessibility",
+                    "description": "The platform is designed to be easy to navigate, readable for long sessions, and accessible to both specialists and the general public."
+                },
+                {
+                    "title": "Continuity",
+                    "description": "Yemen Atlas is intended as a long-term project—an evolving archive that grows over time while preserving historical records."
+                }
+            ]
+        },
+        "content": {
+            "title": "What Yemen Atlas Provides",
+            "items": [
+                "Geographic and regional data",
+                "Historical timelines and contextual information",
+                "Documented events and incidents",
+                "Analytical summaries based on verified sources",
+                "Structured records suitable for research and reporting"
+            ]
+        },
+        "audience": {
+            "title": "Who Yemen Atlas Is For",
+            "content": "Yemen Atlas is designed for researchers, academics, journalists, human rights organizations, policy analysts, educators, students, and the general public. The platform does not require prior expertise and avoids technical or emotional language where it is not necessary."
+        },
+        "independence": {
+            "title": "Independence and Responsibility",
+            "content": "Yemen Atlas operates independently and is not affiliated with any government, political party, or organization. The project acknowledges the sensitivity of its subject matter and approaches it with responsibility, respect, and care. Content is curated to inform, not to sensationalize."
+        },
+        "future": {
+            "title": "Looking Forward",
+            "content": "Yemen Atlas is an ongoing project. As data sources expand and methodologies improve, the platform will continue to evolve while maintaining its core commitment to neutrality, accuracy, and professionalism. When someone needs to understand Yemen, Yemen Atlas aims to be the place they trust."
+        }
     }
 }

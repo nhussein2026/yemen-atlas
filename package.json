@@ -1,5 +1,10 @@
 {
-  "name": "nebulous-nadir",
+  "name": "yemen-atlas",
+  "author": "Yemen Atlas Contributors",
+  "funding": {
+    "type": "website",
+    "url": "https://nhussein.io"
+  },
   "type": "module",
   "version": "0.0.1",
   "scripts": {
