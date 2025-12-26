@@ -95,42 +95,44 @@ const nav_menu = t(lang, "nav");
       </button>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-6">
-        <!-- Navigation Menu -->
-        <ul class="flex items-center gap-3 list-none m-0 p-0">
-          {
-            nav_menu.map(({ label, link, icon }) => {
-              const fullHref = link === "/" ? `/${lang}` : `/${lang}/${link}`;
-              const isActive = Astro.url.pathname === fullHref;
-              return (
-                <li class="relative">
-                  <a
-                    href={fullHref}
-                    class={`flex items-center gap-1.5 px-3.5 py-2 font-sans text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
-                      isActive
-                        ? "text-[var(--atlas-terracotta)] font-semibold bg-gradient-to-br from-[rgba(168,67,37,0.1)] to-[rgba(92,85,82,0.05)]"
-                        : "text-[var(--atlas-archive)] hover:text-[var(--atlas-terracotta)] hover:bg-gradient-to-br from-[var(--atlas-paper)] to-[#f9f5f0] hover:-translate-y-0.5"
-                    }`}
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    {icon && (
-                      <span class="text-base" aria-hidden="true">
-                        {icon}
-                      </span>
-                    )}
-                    <span>{label}</span>
-                    {isActive && (
-                      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-atlas-terracotta rounded-full" />
-                    )}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
+      <div class="hidden md:flex items-center justify-between flex-1 gap-6">
+        <!-- Navigation Menu - Centered -->
+        <div class="flex-1 flex justify-center">
+          <ul class="flex items-center gap-3 list-none m-0 p-0">
+            {
+              nav_menu.map(({ label, link, icon }) => {
+                const fullHref = link === "/" ? `/${lang}` : `/${lang}/${link}`;
+                const isActive = Astro.url.pathname === fullHref;
+                return (
+                  <li class="relative">
+                    <a
+                      href={fullHref}
+                      class={`flex items-center gap-1.5 px-3.5 py-2 font-sans text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap ${
+                        isActive
+                          ? "text-[var(--atlas-terracotta)] font-semibold bg-gradient-to-br from-[rgba(168,67,37,0.1)] to-[rgba(92,85,82,0.05)]"
+                          : "text-[var(--atlas-archive)] hover:text-[var(--atlas-terracotta)] hover:bg-gradient-to-br from-[var(--atlas-paper)] to-[#f9f5f0] hover:-translate-y-0.5"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {icon && (
+                        <span class="text-base" aria-hidden="true">
+                          {icon}
+                        </span>
+                      )}
+                      <span>{label}</span>
+                      {isActive && (
+                        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-atlas-terracotta rounded-full" />
+                      )}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
 
         <!-- Language Toggle -->
-        <div class="relative ml-2">
+        <div class="relative flex-shrink-0">
           <a
             href={`/${toggleLang}${currentPath}`}
             class="flex items-center gap-1.5 px-3.5 py-2 bg-[var(--atlas-paper)] border-1.5 border-[var(--atlas-terracotta)] rounded-lg font-sans text-sm font-medium text-[var(--atlas-terracotta)] transition-all duration-300 hover:bg-[var(--atlas-terracotta)] hover:text-[var(--atlas-paper)] hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
