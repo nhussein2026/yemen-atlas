@@ -122,5 +122,32 @@
             "title": "Looking Forward",
             "content": "Yemen Atlas is an ongoing project. As data sources expand and methodologies improve, the platform will continue to evolve while maintaining its core commitment to neutrality, accuracy, and professionalism. When someone needs to understand Yemen, Yemen Atlas aims to be the place they trust."
         }
+    },
+    "hero": {
+        "title": "Yemen",
+        "subtitle": "Discover the heart of the Arabian Peninsula",
+        "exploreButton": "Explore Districts",
+        "learnButton": "Learn More"
+    },
+    "map": {
+        "tooltip": {
+            "clickToExplore": "Click to explore"
+        },
+        "controls": {
+            "zoomIn": "Zoom in",
+            "zoomOut": "Zoom out",
+            "reset": "Reset map"
+        },
+        "districtCounter": {
+            "label": "Districts"
+        },
+        "popup": {
+            "areaCoverage": "Area Coverage",
+            "explore": "Explore",
+            "description": "{{name}} is one of Yemen's districts with unique geographic and cultural characteristics."
+        },
+        "errors": {
+            "loadFailed": "Unable to load map"
+        }
     }
 }

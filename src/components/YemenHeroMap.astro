@@ -1,0 +1,496 @@
+---
+/**
+ * Yemen Interactive Hero Map
+ * Creative, animated D3.js map with district boundaries
+ *
+ * Features:
+ * - Detailed district boundaries from ye.json
+ * - Animated entrance with staggered district reveal
+ * - Interactive hover with district information
+ * - Click to explore districts with detailed info
+ * - Color gradient visualization
+ * - Smooth animations and transitions
+ * - Responsive hero section design
+ * - Dark/light mode support
+ * - Multi-language support (English & Arabic)
+ */
+
+import "../styles/yemen-hero-map.css";
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props as Props;
+---
+
+<!-- Load D3.js v7 -->
+<script src="/assets/js/d3.v7.min.js" is:inline></script>
+<section class="yemen-hero-map-section">
+  <!-- Animated background -->
+  <div class="hero-background">
+    <div class="background-animation"></div>
+  </div>
+
+  <!-- Map container -->
+  <div class="hero-map-container">
+    <!-- SVG map -->
+    <svg id="yemen-hero-svg" class="yemen-hero-svg"></svg>
+
+    <!-- Interactive tooltip -->
+    <div id="map-tooltip" class="map-tooltip">
+      <div class="tooltip-inner">
+        <h4 class="tooltip-title"></h4>
+        <p class="tooltip-meta"></p>
+      </div>
+    </div>
+
+    <!-- District info popup -->
+    <div id="district-popup" class="district-popup">
+      <div class="popup-content">
+        <h2 class="popup-title"></h2>
+        <div class="popup-meta">
+          <span class="meta-item">
+            <span class="meta-label" data-i18n="map.popup.areaCoverage"
+              >Area Coverage</span
+            >
+            <span class="meta-value area-value"></span>
+          </span>
+        </div>
+        <p class="popup-description"></p>
+      </div>
+    </div>
+
+    <!-- Hero overlay content -->
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero.title">Yemen</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Discover the heart of the Arabian Peninsula
+        </p>
+        <div class="hero-cta">
+          <button
+            class="btn-primary"
+            id="explore-btn"
+            data-i18n="hero.exploreButton">Explore Districts</button
+          >
+          <button
+            class="btn-secondary"
+            id="learn-btn"
+            data-i18n="hero.learnButton">Learn More</button
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Map controls -->
+    <div class="map-controls">
+      <button
+        id="zoom-in"
+        class="control-btn"
+        title="Zoom in"
+        aria-label="Zoom in"
+        data-i18n="map.controls.zoomIn"
+      >
+        <span>+</span>
+      </button>
+      <button
+        id="zoom-out"
+        class="control-btn"
+        title="Zoom out"
+        aria-label="Zoom out"
+        data-i18n="map.controls.zoomOut"
+      >
+        <span>−</span>
+      </button>
+      <button
+        id="reset-map"
+        class="control-btn"
+        title="Reset view"
+        aria-label="Reset map"
+        data-i18n="map.controls.reset"
+      >
+        <span>⟲</span>
+      </button>
+    </div>
+
+    <!-- District counter -->
+    <div class="district-counter">
+      <span class="counter-label" data-i18n="map.districtCounter.label"
+        >Districts</span
+      >
+      <span id="district-count" class="counter-value">0</span>
+    </div>
+  </div>
+
+  <script define:vars={{ lang }}>
+    /**
+     * Initialize Yemen Hero Map with creative animations
+     * @param {string} lang - Current language (en or ar)
+     */
+    function initYemenHeroMap() {
+      // Check D3 availability
+      if (typeof d3 === "undefined") {
+        setTimeout(initYemenHeroMap, 100);
+        return;
+      }
+
+      console.log("Yemen Hero Map: Initializing...");
+
+      // ============= TRANSLATION HELPER =============
+      const translations = {
+        en: {
+          "hero.title": "Yemen",
+          "hero.subtitle": "Discover the heart of the Arabian Peninsula",
+          "hero.exploreButton": "Explore Districts",
+          "hero.learnButton": "Learn More",
+          "map.controls.zoomIn": "Zoom in",
+          "map.controls.zoomOut": "Zoom out",
+          "map.controls.reset": "Reset map",
+          "map.districtCounter.label": "Districts",
+          "map.popup.areaCoverage": "Area Coverage",
+          "map.popup.explore": "Explore",
+          "map.tooltip.clickToExplore": "Click to explore",
+        },
+        ar: {
+          "hero.title": "اليمن",
+          "hero.subtitle": "اكتشف قلب شبه الجزيرة العربية",
+          "hero.exploreButton": "استكشاف المديريات",
+          "hero.learnButton": "معرفة المزيد",
+          "map.controls.zoomIn": "تكبير",
+          "map.controls.zoomOut": "تصغير",
+          "map.controls.reset": "إعادة التعيين",
+          "map.districtCounter.label": "المديريات",
+          "map.popup.areaCoverage": "المساحة",
+          "map.popup.explore": "استكشاف",
+          "map.tooltip.clickToExplore": "انقر للاستكشاف",
+        },
+      };
+
+      function getTranslation(key) {
+        return translations[lang]?.[key] || translations.en[key] || key;
+      }
+
+      // Apply translations to DOM elements
+      function applyTranslations() {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          const text = getTranslation(key);
+          if (el.tagName === "BUTTON" && el.getAttribute("title")) {
+            el.setAttribute("title", text);
+            el.setAttribute("aria-label", text);
+          } else {
+            el.textContent = text;
+          }
+        });
+      }
+
+      applyTranslations();
+
+      // ============= CONFIG =============
+      const config = {
+        width: 1200,
+        height: 700,
+        centerLon: 48.2156,
+        centerLat: 15.3694,
+        scale: 6000,
+        transitionDuration: 300,
+        staggerDelay: 30,
+        animationDelay: 800,
+      };
+
+      // ============= DOM ELEMENTS =============
+      const svg = document.getElementById("yemen-hero-svg");
+      const tooltip = document.getElementById("map-tooltip");
+      const popup = document.getElementById("district-popup");
+      const zoomInBtn = document.getElementById("zoom-in");
+      const zoomOutBtn = document.getElementById("zoom-out");
+      const resetBtn = document.getElementById("reset-map");
+      const counterEl = document.getElementById("district-count");
+      const heroOverlay = document.querySelector(".hero-overlay");
+      const exploreBtn = document.getElementById("explore-btn");
+
+      if (!svg) {
+        console.error("Yemen Hero Map: SVG not found");
+        return;
+      }
+
+      // ============= LOAD & PROCESS DATA =============
+      fetch("/data/ye.json")
+        .then((r) => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return r.json();
+        })
+        .then((geoData) => {
+          console.log(
+            `Yemen Hero Map: Loaded ${geoData.features.length} districts`
+          );
+          counterEl.textContent = geoData.features.length;
+          setupMap(geoData);
+        })
+        .catch((err) => {
+          console.error("Yemen Hero Map: Data error", err);
+          const errorMsg =
+            lang === "ar" ? "تعذر تحميل الخريطة" : "Unable to load map";
+          svg.innerHTML = `<text x="50%" y="50%" text-anchor="middle" fill="#666" font-size="16">${errorMsg}</text>`;
+        });
+
+      /**
+       * MAIN SETUP FUNCTION
+       */
+      function setupMap(geoData) {
+        // Responsive sizing
+        function updateSize() {
+          const container = document.querySelector(".hero-map-container");
+          if (!container) return;
+
+          const width = container.clientWidth;
+          const height = (width / config.width) * config.height;
+
+          config.width = width;
+          config.height = height;
+
+          svg.setAttribute("width", config.width);
+          svg.setAttribute("height", config.height);
+        }
+
+        updateSize();
+        window.addEventListener("resize", updateSize);
+
+        // ============= PROJECTION & PATH =============
+        const projection = d3
+          .geoMercator()
+          .center([config.centerLon, config.centerLat])
+          .scale(config.scale)
+          .translate([config.width / 2, config.height / 2]);
+
+        const path = d3.geoPath().projection(projection);
+
+        // ============= CREATE SVG GROUPS =============
+        d3.select(svg).selectAll("*").remove();
+
+        const mainGroup = d3.select(svg).append("g").attr("class", "map-group");
+
+        // Background
+        mainGroup
+          .append("rect")
+          .attr("width", config.width)
+          .attr("height", config.height)
+          .attr("fill", "transparent");
+
+        // ============= RENDER DISTRICTS =============
+        const districts = mainGroup
+          .selectAll(".district")
+          .data(geoData.features)
+          .enter()
+          .append("g")
+          .attr("class", "district")
+          .attr("data-id", (d) => d.id)
+          .attr("data-name", (d) => d.properties.name);
+
+        // District paths
+        districts
+          .append("path")
+          .attr("class", "district-path")
+          .attr("d", path)
+          .attr("fill", (d, i) => {
+            // Color gradient based on position
+            const hue = (i / geoData.features.length) * 360;
+            return `hsl(${hue}, 70%, 60%)`;
+          })
+          .attr("fill-opacity", 0)
+          .attr("stroke", "#e5e7eb")
+          .attr("stroke-width", 1)
+          // Staggered animation on load
+          .transition()
+          .delay((d, i) => i * config.staggerDelay)
+          .duration(config.transitionDuration)
+          .attr("fill-opacity", 0.7);
+
+        // Interactive handlers
+        districts
+          .on("mouseenter", function (event, d) {
+            const current = d3.select(this);
+
+            // Highlight current
+            current
+              .select(".district-path")
+              .transition()
+              .duration(config.transitionDuration)
+              .attr("fill-opacity", 1)
+              .attr("stroke-width", 2)
+              .attr("stroke", "#1f2937");
+
+            // Fade others
+            mainGroup
+              .selectAll(".district")
+              .filter((f) => f.id !== d.id)
+              .select(".district-path")
+              .transition()
+              .duration(config.transitionDuration)
+              .attr("fill-opacity", 0.3);
+
+            showTooltip(event, d);
+          })
+          .on("mousemove", (event) => updateTooltipPos(event))
+          .on("mouseleave", function () {
+            // Reset all
+            mainGroup
+              .selectAll(".district-path")
+              .transition()
+              .duration(config.transitionDuration)
+              .attr("fill-opacity", 0.7)
+              .attr("stroke-width", 1)
+              .attr("stroke", "#e5e7eb");
+
+            hideTooltip();
+          })
+          .on("click", (event, d) => {
+            event.stopPropagation();
+            showDistrictPopup(d, path);
+          });
+
+        // ============= ZOOM BEHAVIOR =============
+        const zoom = d3
+          .zoom()
+          .scaleExtent([1, 8])
+          .on("zoom", (event) => {
+            mainGroup.attr("transform", event.transform);
+          });
+
+        d3.select(svg).call(zoom);
+
+        // Initial transform for reset
+        const initialTransform = d3.zoomIdentity
+          .translate(config.width / 2, config.height / 2)
+          .scale(1);
+
+        // ============= CONTROL BUTTONS =============
+        zoomInBtn?.addEventListener("click", () => {
+          d3.select(svg)
+            .transition()
+            .duration(config.transitionDuration)
+            .call(zoom.scaleBy, 1.5);
+        });
+
+        zoomOutBtn?.addEventListener("click", () => {
+          d3.select(svg)
+            .transition()
+            .duration(config.transitionDuration)
+            .call(zoom.scaleBy, 0.75);
+        });
+
+        resetBtn?.addEventListener("click", () => {
+          d3.select(svg)
+            .transition()
+            .duration(config.transitionDuration * 1.5)
+            .call(zoom.transform, initialTransform);
+
+          hidePopup();
+          hideTooltip();
+        });
+
+        const exploreDistrictsBtn = document.getElementById("explore-btn");
+        exploreDistrictsBtn?.addEventListener("click", () => {
+          heroOverlay.classList.add("hidden");
+          setTimeout(() => {
+            heroOverlay.style.display = "none";
+          }, 300);
+        });
+
+        // ============= TOOLTIP FUNCTIONS =============
+        function showTooltip(event, data) {
+          const name = data.properties.name;
+          const clickText =
+            lang === "ar" ? "انقر للاستكشاف" : "Click to explore";
+          tooltip.querySelector(".tooltip-title").textContent = name;
+          tooltip.querySelector(".tooltip-meta").textContent = clickText;
+          tooltip.style.display = "block";
+          updateTooltipPos(event);
+        }
+
+        function updateTooltipPos(event) {
+          if (tooltip.style.display === "none") return;
+
+          const offset = 15;
+          let x = event.clientX + offset;
+          let y = event.clientY + offset;
+
+          const rect = tooltip.getBoundingClientRect();
+          if (x + rect.width > window.innerWidth)
+            x = event.clientX - rect.width - offset;
+          if (y + rect.height > window.innerHeight)
+            y = event.clientY - rect.height - offset;
+
+          tooltip.style.left = x + "px";
+          tooltip.style.top = y + "px";
+        }
+
+        function hideTooltip() {
+          tooltip.style.display = "none";
+        }
+
+        // ============= POPUP FUNCTIONS =============
+        let popupTimeout = null;
+
+        function showDistrictPopup(data, path) {
+          const name = data.properties.name;
+          const districtId = data.properties.id || data.id;
+
+          // Calculate area (approximate)
+          const bounds = path.bounds(data);
+          const areaPixels =
+            (bounds[1][0] - bounds[0][0]) * (bounds[1][1] - bounds[0][1]);
+          const areaKm = Math.round(areaPixels / 10); // Rough approximation
+
+          // Get translated description
+          const descriptionText =
+            lang === "ar"
+              ? `${name} هي إحدى مديريات اليمن وتتميز بخصائص جغرافية وثقافية فريدة.`
+              : `${name} is one of Yemen's districts with unique geographic and cultural characteristics.`;
+
+          // Populate popup content
+          popup.querySelector(".popup-title").textContent = name;
+          popup.querySelector(".area-value").textContent = `${areaKm} km²`;
+          popup.querySelector(".popup-description").textContent =
+            descriptionText;
+
+          // Show popup with animation
+          popup.classList.add("show");
+          popup.style.display = "block";
+
+          // Clear any existing timeout
+          if (popupTimeout) {
+            clearTimeout(popupTimeout);
+          }
+
+          // Auto-hide after 5 seconds
+          popupTimeout = setTimeout(() => {
+            hidePopup();
+          }, 5000);
+        }
+
+        function hidePopup() {
+          if (popupTimeout) {
+            clearTimeout(popupTimeout);
+            popupTimeout = null;
+          }
+          popup.classList.remove("show");
+          setTimeout(() => {
+            popup.style.display = "none";
+          }, config.transitionDuration);
+        }
+
+        console.log("Yemen Hero Map: Initialized successfully");
+      }
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initYemenHeroMap);
+    } else {
+      initYemenHeroMap();
+    }
+  </script>
+</section>

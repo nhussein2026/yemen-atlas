@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentSection from "../../components/ContentSection.astro";
 import { assertLang } from "../../lib/lang";
 import { t } from "../../lib/translations";
 
@@ -17,135 +18,147 @@ const isArabic = lang === "ar";
 
 <BaseLayout lang={lang} title={about.title}>
   <div class={`${isArabic ? "rtl" : "ltr"}`} dir={isArabic ? "rtl" : "ltr"}>
-    <!-- Hero Section -->
-    <section class="mb-16 pb-8 border-b border-light-stone">
-      <h1
-        class="text-4xl md:text-5xl font-bold mb-6"
-        style="color: var(--atlas-archive);"
-      >
-        {about.title}
-      </h1>
-      <p
-        class="text-lg leading-relaxed max-w-3xl"
-        style="color: var(--atlas-archive);"
-      >
-        {about.intro}
-      </p>
-    </section>
+    <div class="content-wrapper">
+      <div class="content-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <h1 class="page-title">
+            {about.title}
+          </h1>
+          <p class="hero-intro">
+            {about.intro}
+          </p>
+        </section>
 
-    <!-- Mission Section -->
-    <section class="mb-16 pb-8 border-b border-light-stone">
-      <h2
-        class="text-3xl font-bold mb-4"
-        style="color: var(--atlas-terracotta);"
-      >
-        {about.mission.title}
-      </h2>
-      <p
-        class="text-base leading-relaxed max-w-3xl"
-        style="color: var(--atlas-archive);"
-      >
-        {about.mission.content}
-      </p>
-    </section>
+        <!-- Mission Section -->
+        <ContentSection
+          title={about.mission.title}
+          content={about.mission.content}
+          lang={lang}
+        />
 
-    <!-- Principles Section -->
-    <section class="mb-16 pb-8 border-b border-light-stone">
-      <h2
-        class="text-3xl font-bold mb-8"
-        style="color: var(--atlas-terracotta);"
-      >
-        {about.principles.title}
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {
-          about.principles.items.map((principle) => (
-            <div
-              class="p-6 rounded-lg border-l-4"
-              style="border-color: var(--atlas-terracotta); background-color: var(--atlas-paper);"
-            >
-              <h3
-                class="text-xl font-semibold mb-2"
-                style="color: var(--atlas-archive);"
-              >
-                {principle.title}
-              </h3>
-              <p
-                class="text-sm leading-relaxed"
-                style="color: var(--atlas-stone);"
-              >
-                {principle.description}
-              </p>
-            </div>
-          ))
-        }
+        <!-- Principles Section -->
+        <ContentSection
+          title={about.principles.title}
+          items={about.principles.items}
+          lang={lang}
+        />
+
+        <!-- Audience Section -->
+        <ContentSection
+          title={about.audience.title}
+          content={about.audience.content}
+          lang={lang}
+        />
+
+        <!-- Independence Section -->
+        <ContentSection
+          title={about.independence.title}
+          content={about.independence.content}
+          lang={lang}
+        />
+
+        <!-- Future Section -->
+        <ContentSection
+          title={about.future.title}
+          content={about.future.content}
+          lang={lang}
+          isBordered={false}
+        />
       </div>
-    </section>
-
-    <!-- Audience Section -->
-    <section class="mb-16 pb-8 border-b border-light-stone">
-      <h2
-        class="text-3xl font-bold mb-4"
-        style="color: var(--atlas-terracotta);"
-      >
-        {about.audience.title}
-      </h2>
-      <p
-        class="text-base leading-relaxed max-w-3xl"
-        style="color: var(--atlas-archive);"
-      >
-        {about.audience.content}
-      </p>
-    </section>
-
-    <!-- Independence Section -->
-    <section class="mb-16 pb-8 border-b border-light-stone">
-      <h2
-        class="text-3xl font-bold mb-4"
-        style="color: var(--atlas-terracotta);"
-      >
-        {about.independence.title}
-      </h2>
-      <p
-        class="text-base leading-relaxed max-w-3xl"
-        style="color: var(--atlas-archive);"
-      >
-        {about.independence.content}
-      </p>
-    </section>
-
-    <!-- Future Section -->
-    <section class="mb-8">
-      <h2
-        class="text-3xl font-bold mb-4"
-        style="color: var(--atlas-terracotta);"
-      >
-        {about.future.title}
-      </h2>
-      <p
-        class="text-base leading-relaxed max-w-3xl"
-        style="color: var(--atlas-archive);"
-      >
-        {about.future.content}
-      </p>
-    </section>
+    </div>
   </div>
 
   <style>
-    /* Define CSS custom properties for consistency */
-    .border-light-stone {
-      border-color: var(--atlas-border);
+    /* Content Wrapper - Main container for centering */
+    .content-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 0;
     }
 
-    .border-atlas-border {
-      border-color: var(--atlas-border);
+    /* Content Container - Constrains content width */
+    .content-container {
+      width: 100%;
+      max-width: 48rem; /* 768px */
+      padding: 0;
     }
 
-    /* Smooth transitions */
-    .transition-all {
-      transition-property: all;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 300ms;
+    @media (min-width: 640px) {
+      .content-wrapper {
+        padding: 0 1.25rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .content-wrapper {
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .content-wrapper {
+        padding: 0 2rem;
+      }
+    }
+
+    /* Hero Section - Main introduction */
+    .hero-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--atlas-border);
+    }
+
+    @media (min-width: 768px) {
+      .hero-section {
+        margin-bottom: 3.5rem;
+        padding-bottom: 3rem;
+      }
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 1.5rem 0;
+      color: var(--atlas-archive);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    @media (min-width: 768px) {
+      .page-title {
+        margin-bottom: 1.75rem;
+      }
+    }
+
+    .hero-intro {
+      font-size: clamp(0.9375rem, 2vw, 1rem);
+      line-height: 1.75;
+      color: var(--atlas-archive);
+      margin: 0;
+      text-align: justify;
+      word-spacing: 0.1em;
+      letter-spacing: 0.3px;
+    }
+
+    /* Responsive adjustments for small screens */
+    @media (max-width: 640px) {
+      .hero-section {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      .page-title {
+        font-size: 1.875rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-intro {
+        font-size: 0.9375rem;
+      }
     }
   </style>
 </BaseLayout>

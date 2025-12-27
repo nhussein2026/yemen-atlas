@@ -1,0 +1,207 @@
+---
+/**
+ * ContentSection Component
+ *
+ * Standardized section component for content pages
+ * Provides consistent styling and spacing across About, Blog, History pages
+ * Maintains visual harmony with the website's design identity
+ *
+ * Props:
+ * - title: Section heading (string)
+ * - content?: Section main text (string)
+ * - items?: Array of subsection items with title and description (object[])
+ * - lang: Language code ('en' or 'ar')
+ * - titleColor?: Optional color for title (CSS color or var reference)
+ * - isBordered?: Show bottom border and spacing (default: true)
+ */
+
+interface Item {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  content?: string;
+  items?: Item[];
+  lang: "en" | "ar";
+  titleColor?: string;
+  isBordered?: boolean;
+}
+
+const {
+  title,
+  content,
+  items,
+  lang,
+  titleColor = "var(--atlas-terracotta)",
+  isBordered = true,
+} = Astro.props;
+
+const isArabic = lang === "ar";
+---
+
+<section
+  class={`section-wrapper ${isBordered ? "section-spacing" : ""}`}
+  dir={isArabic ? "rtl" : "ltr"}
+>
+  <h2 class="section-title" style={`color: ${titleColor};`}>
+    {title}
+  </h2>
+
+  {content && <p class="section-content">{content}</p>}
+
+  {
+    items && items.length > 0 && (
+      <div class="items-grid">
+        {items.map((item) => (
+          <div class="item-card">
+            <h3 class="item-title">{item.title}</h3>
+            <p class="item-description">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  {/* Slot for additional content if needed */}
+  <slot />
+</section>
+
+<style>
+  .section-wrapper {
+    width: 100%;
+  }
+
+  .section-spacing {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--atlas-border);
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  .section-spacing:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.375rem, 4vw, 1.875rem);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    margin-top: 0;
+    color: inherit;
+    line-height: 1.3;
+  }
+
+  .section-content {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    line-height: 1.75;
+    color: var(--atlas-archive);
+    margin-bottom: 1.75rem;
+    text-align: justify;
+    word-spacing: 0.1em;
+    letter-spacing: 0.3px;
+  }
+
+  .section-content:last-child {
+    margin-bottom: 0;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .items-grid {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .items-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .items-grid {
+      gap: 2rem;
+    }
+  }
+
+  .item-card {
+    padding: 1.5rem;
+    background-color: var(--atlas-paper);
+    border-radius: 0.375rem;
+    border-left: 4px solid var(--atlas-terracotta);
+    transition: all 300ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .item-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  [dir="rtl"] .item-card {
+    border-left: none;
+    border-right: 4px solid var(--atlas-terracotta);
+  }
+
+  .item-title {
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    font-weight: 600;
+    color: var(--atlas-archive);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .item-description {
+    font-size: clamp(0.875rem, 1.5vw, 0.95rem);
+    line-height: 1.65;
+    color: var(--atlas-stone);
+    margin: 0;
+    text-align: justify;
+  }
+
+  /* Mobile-optimized adjustments */
+  @media (max-width: 640px) {
+    .section-title {
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .item-card {
+      padding: 1.25rem;
+      gap: 0.5rem;
+    }
+
+    .item-title {
+      font-size: 1.0625rem;
+    }
+
+    .item-description {
+      font-size: 0.875rem;
+    }
+  }
+</style>
