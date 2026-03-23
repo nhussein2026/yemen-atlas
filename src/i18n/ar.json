@@ -110,5 +110,12 @@
         "errors": {
             "loadFailed": "تعذر تحميل الخريطة"
         }
+    },
+    "history": {
+        "categories": {
+            "Prehistory & Ancient Yemen": "ما قبل التاريخ واليمن القديم",
+            "Islamic Period": "العصر الإسلامي",
+            "Other": "أخرى"
+        }
     }
-}
+}

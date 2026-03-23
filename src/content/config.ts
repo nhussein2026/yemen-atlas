@@ -36,6 +36,7 @@ export const collections = {
       title: i18nString,
       period: i18nString,
       summary: i18nString,
+      content: i18nString.optional(),
       category: z.string().optional(),
       order: z.number().optional(),
       sources: z.array(z.string()).optional(),

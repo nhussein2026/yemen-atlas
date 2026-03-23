@@ -149,5 +149,12 @@
         "errors": {
             "loadFailed": "Unable to load map"
         }
+    },
+    "history": {
+        "categories": {
+            "Prehistory & Ancient Yemen": "Prehistory & Ancient Yemen",
+            "Islamic Period": "Islamic Period",
+            "Other": "Others"
+        }
     }
-}
+}

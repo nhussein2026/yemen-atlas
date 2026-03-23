@@ -20,11 +20,31 @@ const isArabic = lang === "ar";
 
 const title = entry.data.title[lang];
 const description = entry.data.summary[lang];
+
+// Simple markdown formatter for content from frontmatter
+function formatMarkdown(text: string): string {
+  let html = text;
+
+  // Convert ## headers
+  html = html.replace(/^## (.+)$/gm, "<h2>$1</h2>");
+  // Convert ### headers
+  html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
+  // Convert bold
+  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Convert bullet lists
+  html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
+  html = html.replace(/(<li>.*?<\/li>)/s, "<ul>$1</ul>");
+  // Convert paragraph breaks
+  html = html.replace(/\n\n+/g, "</p><p>");
+  html = "<p>" + html + "</p>";
+
+  return html;
+}
 ---
 
 <BaseLayout {title} {description} {lang}>
   <!-- Hero Section -->
-  <div class="relative bg-atlas-paper border-b border-stone-200">
+  <div class="relative bg-atlas-paper border-b border-stone-200" dir={isArabic ? "rtl" : "ltr"}>
     <div class="container mx-auto px-4 py-16 md:py-24 max-w-4xl text-center">
       <div class="mb-6">
         <a
@@ -50,7 +70,7 @@ const description = entry.data.summary[lang];
   </div>
 
   <!-- Content Section -->
-  <div class="container mx-auto px-4 py-12 max-w-3xl">
+  <div class="container mx-auto px-4 py-12 max-w-3xl" dir={isArabic ? "rtl" : "ltr"}>
     <article class="prose prose-stone prose-lg max-w-none 
       prose-headings:font-display prose-headings:font-bold prose-headings:text-gray-900
       prose-p:text-gray-700 prose-p:leading-relaxed
@@ -58,7 +78,13 @@ const description = entry.data.summary[lang];
       prose-strong:text-gray-900 prose-strong:font-semibold
       prose-ul:list-disc prose-ul:pl-6
       marker:text-stone-400">
-      <Content />
+      {
+        entry.data.content && entry.data.content[lang] ? (
+          <div set:html={formatMarkdown(entry.data.content[lang])} />
+        ) : (
+          <Content />
+        )
+      }
     </article>
 
     {/* Sources Section if available */}
