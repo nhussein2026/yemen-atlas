@@ -38,9 +38,10 @@ const villageCount = governorate.districts.reduce(
 
 <BaseLayout lang={lang} title={name}>
   <!-- Header -->
+  <div class="m-8">
   <section class="bg-aged-paper mb-18">
     <div
-      class={`flex items-center gap-4 mb-6 ${isRTL ? "flex-row-reverse" : ""}`}
+      class="flex items-center gap-4 mb-6"
     >
       <div class="w-1 h-14 bg-terracotta rounded-full"></div>
       <h1
@@ -186,5 +187,6 @@ const villageCount = governorate.districts.reduce(
     >
       ← {lang === "en" ? "Back to Explore" : "العودة إلى الاستكشاف"}
     </a>
+  </div>
   </div>
 </BaseLayout>

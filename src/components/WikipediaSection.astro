@@ -1,0 +1,76 @@
+---
+interface Props {
+  section: any;
+  language: 'en' | 'ar';
+  showSource?: boolean;
+}
+
+const { section, language = 'en', showSource = true } = Astro.props;
+---
+
+<article class="wiki-section" id={section.id}>
+  <h2 class="section-title" data-level={section.level}>
+    {section.title}
+  </h2>
+  
+  <div 
+    class="wiki-content prose prose-lg max-w-none"
+    data-language={language}
+    dir={language === 'ar' ? 'rtl' : 'ltr'}
+    set:html={section.content}
+  />
+  
+  {showSource && (
+    <div class="source-attribution mt-8 pt-4 border-t">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        <span class="font-semibold">
+          {language === 'en' ? 'Source:' : 'المصدر:'}
+        </span>
+        {' '}
+        <a 
+          href={`https://${language}.wikipedia.org/wiki/${language === 'en' ? 'Yemen' : 'اليمن'}#${section.id}`}
+          class="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Wikipedia - {section.title}
+        </a>
+        {' • '}
+        <span class="text-xs">
+          {language === 'en' ? 'CC BY-SA 3.0' : 'رخصة المشاع الإبداعي'}
+        </span>
+      </p>
+    </div>
+  )}
+</article>
+
+<style>
+  .wiki-content {
+    line-height: 1.7;
+  }
+  
+  .wiki-content[data-language="ar"] {
+    font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+    line-height: 1.8;
+  }
+  
+  .wiki-content :where(h3, h4, h5) {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+  }
+  
+  .wiki-content p {
+    margin-bottom: 1em;
+  }
+  
+  .wiki-content ul, .wiki-content ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+  }
+  
+  .wiki-content[dir="rtl"] ul,
+  .wiki-content[dir="rtl"] ol {
+    padding-left: 0;
+    padding-right: 1.5em;
+  }
+</style>

@@ -1,0 +1,165 @@
+---
+/* =========================
+   Static paths (REQUIRED)
+   ========================= */
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "ar" } }];
+}
+
+/* =========================
+   Imports
+   ========================= */
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import WikipediaSection from "../../../components/WikipediaSection.astro";
+
+import enData from "../../../content/wikipedia/en-yemen.json";
+import arData from "../../../content/wikipedia/ar-yemen.json";
+
+/* =========================
+   Language handling
+   ========================= */
+const { lang } = Astro.params;
+const currentLang = lang === "ar" ? "ar" : "en";
+const currentData = currentLang === "en" ? enData : arData;
+---
+
+<BaseLayout title={`Yemen Atlas – ${currentData.title}`} language={currentLang}>
+  <div class="container mx-auto px-4 py-8">
+    <!-- =========================
+         Language Switcher
+         ========================= -->
+    <div class="mb-8 flex gap-4">
+      <a
+        href="/en/yemen"
+        class={`btn ${currentLang === "en" ? "btn-primary" : "btn-secondary"}`}
+      >
+        English
+      </a>
+      <a
+        href="/ar/yemen"
+        class={`btn ${currentLang === "ar" ? "btn-primary" : "btn-secondary"}`}
+      >
+        العربية
+      </a>
+    </div>
+
+    <!-- =========================
+         Header
+         ========================= -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold mb-4">
+        {currentLang === "en" ? "Yemen Atlas" : "أطلس اليمن"}
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        {
+          currentLang === "en"
+            ? "Comprehensive geographical, historical, and cultural reference"
+            : "مرجع شامل جغرافي وتاريخي وثقافي"
+        }
+      </p>
+    </header>
+
+    <!-- =========================
+         Layout
+         ========================= -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- ===== Table of Contents ===== -->
+      <aside class="lg:col-span-1">
+        <div
+          class="sticky top-8 bg-white dark:bg-gray-900 p-4 rounded-lg shadow"
+        >
+          <h3 class="font-bold mb-4">
+            {currentLang === "en" ? "Table of Contents" : "جدول المحتويات"}
+          </h3>
+          <ul class="space-y-2">
+            {
+              currentData.sections.map((section) => (
+                <li>
+                  <a
+                    href={`#${section.id}`}
+                    class="block py-1 px-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded text-sm"
+                    style={`padding-left: ${(section.level - 2) * 1}rem`}
+                  >
+                    {section.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ===== Main Content ===== -->
+      <main class="lg:col-span-3 space-y-12">
+        <!-- Overview -->
+        <section id="overview" class="scroll-mt-8">
+          <h2 class="text-3xl font-bold mb-6">
+            {currentLang === "en" ? "Overview" : "نظرة عامة"}
+          </h2>
+
+          <WikipediaSection
+            section={currentData.sections.find((s) => s.id === "Overview") ??
+              currentData.sections[0]}
+            language={currentLang}
+          />
+        </section>
+
+        <!-- Geography -->
+        <section id="geography" class="scroll-mt-8">
+          <h2 class="text-3xl font-bold mb-6">
+            {currentLang === "en" ? "Geography" : "الجغرافيا"}
+          </h2>
+
+          {
+            currentData.sections
+              .filter(
+                (s) =>
+                  s.title.includes("Geography") || s.title.includes("Location")
+              )
+              .map((section) => (
+                <WikipediaSection section={section} language={currentLang} />
+              ))
+          }
+        </section>
+
+        <!-- History -->
+        <section id="history" class="scroll-mt-8">
+          <h2 class="text-3xl font-bold mb-6">
+            {currentLang === "en" ? "History" : "التاريخ"}
+          </h2>
+
+          {
+            currentData.sections
+              .filter((s) => s.title.includes("History"))
+              .map((section) => (
+                <WikipediaSection section={section} language={currentLang} />
+              ))
+          }
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================
+         Attribution
+         ========================= -->
+    <footer
+      class="mt-16 pt-8 border-t dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400"
+    >
+      <p>
+        {
+          currentLang === "en"
+            ? "Content sourced from Wikipedia (CC BY-SA 3.0)."
+            : "المحتوى مستمد من ويكيبيديا (CC BY-SA 3.0)."
+        }
+      </p>
+      <p class="mt-2">
+        <strong>EN:</strong>
+        <a href={enData.url} class="underline">{enData.url}</a>
+      </p>
+      <p>
+        <strong>AR:</strong>
+        <a href={arData.url} class="underline">{arData.url}</a>
+      </p>
+    </footer>
+  </div>
+</BaseLayout>

@@ -1,0 +1,1008 @@
+{
+    "metadata": {
+        "version": "1.0",
+        "last_updated": "2023-12-15",
+        "languages_supported": [
+            "en",
+            "ar"
+        ],
+        "total_categories": 8,
+        "total_subcategories": 21,
+        "total_articles": 25,
+        "description": "Comprehensive history of Yemen from prehistoric times to modern era"
+    },
+    "categories": [
+        {
+            "id": "prehistory_ancient",
+            "slug": "prehistory-ancient",
+            "parent_id": null,
+            "order": 1,
+            "names": {
+                "en": "Prehistory & Ancient Yemen",
+                "ar": "ما قبل التاريخ واليمن القديم"
+            },
+            "description": {
+                "en": "Period from earliest human settlement to the rise of ancient kingdoms",
+                "ar": "الفترة من أول استيطان بشري إلى صعود الممالك القديمة"
+            },
+            "subcategories": [
+                {
+                    "id": "early_settlements",
+                    "slug": "early-settlements",
+                    "names": {
+                        "en": "Early settlements",
+                        "ar": "المستوطنات المبكرة"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_001",
+                            "slug": "neolithic-yemen",
+                            "date": "2023-10-15",
+                            "title": {
+                                "en": "Neolithic Settlements in Yemen",
+                                "ar": "المستوطنات النيوليتية في اليمن"
+                            },
+                            "content": {
+                                "en": "Archaeological evidence suggests that human settlement in Yemen dates back to the Neolithic period, around 8000 BCE. The region's unique geography, with its mountain ranges and coastal plains, provided ideal conditions for early human habitation. Sites like Wadi al-Jubah show evidence of agricultural development and early irrigation systems.\n\nRecent discoveries in the Hadhramaut region reveal stone tools and pottery fragments that indicate sophisticated craftsmanship. The early inhabitants developed terraced farming techniques that would later become characteristic of Yemeni agriculture for millennia. These early communities laid the foundation for the great civilizations that would follow.",
+                                "ar": "تشير الأدلة الأثرية إلى أن الاستيطان البشري في اليمن يعود إلى العصر الحجري الحديث، حوالي 8000 قبل الميلاد. لقد وفرت الجغرافيا الفريدة للمنطقة، مع سلسلة جبالها وسهولها الساحلية، ظروفًا مثالية للسكن البشري المبكر. تظهر مواقع مثل وادي الجوبة أدلة على التطور الزراعي وأنظمة الري المبكرة.\n\nتكشف الاكتشافات الحديثة في منطقة حضرموت عن أدوات حجرية وشظايا فخارية تشير إلى حرفية متطورة. طور السكان الأوائل تقنيات الزراعة المدرجة التي أصبحت فيما بعد مميزة للزراعة اليمنية لآلاف السنين. وضعت هذه المجتمعات المبكرة الأساس للحضارات العظيمة التي ستتبعها."
+                            },
+                            "summary": {
+                                "en": "Evidence of early human settlements dating back to 8000 BCE",
+                                "ar": "أدلة على المستوطنات البشرية المبكرة تعود إلى 8000 قبل الميلاد"
+                            },
+                            "sources": [
+                                "Yemeni Archaeological Museum",
+                                "UNESCO reports"
+                            ],
+                            "tags": [
+                                "archaeology",
+                                "neolithic",
+                                "settlements",
+                                "early civilizations"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "ancient_kingdoms",
+                    "slug": "ancient-kingdoms",
+                    "names": {
+                        "en": "Sabaʾ, Maʿīn, Qatabān, Himyar",
+                        "ar": "سبأ، معين، قتبان، حمير"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_002",
+                            "slug": "kingdom-of-saba",
+                            "date": "2023-10-20",
+                            "title": {
+                                "en": "The Kingdom of Sabaʾ (Sheba)",
+                                "ar": "مملكة سبأ"
+                            },
+                            "content": {
+                                "en": "The Kingdom of Sabaʾ, also known as Sheba, was one of the most prominent ancient civilizations in the Arabian Peninsula, flourishing from approximately 1200 BCE to 275 CE. Its capital, Ma'rib, was famous for the Great Dam of Ma'rib, one of the engineering marvels of the ancient world.\n\nThe Sabaeans controlled the lucrative incense trade and established extensive trade networks reaching as far as the Mediterranean and India. They developed a sophisticated writing system, known as the South Arabian alphabet, which influenced writing systems throughout the region. The Queen of Sheba's visit to King Solomon, mentioned in both the Bible and the Quran, remains one of the most famous legends associated with this kingdom.\n\nThe Sabaean civilization collapsed due to a combination of factors including the decline of the incense trade, environmental changes, and the destruction of the Ma'rib Dam.",
+                                "ar": "كانت مملكة سبأ، المعروفة أيضًا باسم شيبا، واحدة من أبرز الحضارات القديمة في شبه الجزيرة العربية، وازدهرت من حوالي 1200 قبل الميلاد إلى 275 ميلادي. كانت عاصمتها، مأرب، مشهورة بسد مأرب العظيم، أحد عجائب الهندسة في العالم القديم.\n\nسيطر السبئيون على تجارة البخور المربحة وأنشأوا شبكات تجارية واسعة وصلت إلى البحر الأبيض المتوسط والهند. طوروا نظام كتابة متطورًا، يُعرف بالأبجدية العربية الجنوبية، والذي أثر على أنظمة الكتابة في جميع أنحاء المنطقة. لا تزال زيارة ملكة سبأ للملك سليمان، المذكورة في كل من الكتاب المقدس والقرآن، واحدة من أشهر الأساطير المرتبطة بهذه المملكة.\n\nانهارت الحضارة السبئية بسبب مجموعة من العوامل بما في ذلك تراجع تجارة البخور والتغيرات البيئية وتدمير سد مأرب."
+                            },
+                            "summary": {
+                                "en": "The rise and fall of the Sabaean Kingdom from 1200 BCE to 275 CE",
+                                "ar": "صعود وسقوط المملكة السبئية من 1200 قبل الميلاد إلى 275 ميلادي"
+                            },
+                            "sources": [
+                                "Ancient Yemeni inscriptions",
+                                "Historical records",
+                                "Archaeological findings"
+                            ],
+                            "tags": [
+                                "Sabaeans",
+                                "Sheba",
+                                "ancient kingdoms",
+                                "South Arabian"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                },
+                {
+                    "id": "incense_trade",
+                    "slug": "incense-trade",
+                    "names": {
+                        "en": "Trade (incense route)",
+                        "ar": "التجارة (طريق البخور)"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_003",
+                            "slug": "frankincense-trade",
+                            "date": "2023-10-25",
+                            "title": {
+                                "en": "The Frankincense and Myrrh Trade",
+                                "ar": "تجارة اللبان والمر"
+                            },
+                            "content": {
+                                "en": "Yemen's location made it a crucial hub in the ancient incense trade routes. Frankincense and myrrh, harvested from trees native to southern Arabia, were among the most valuable commodities in the ancient world, used in religious ceremonies, medicine, and embalming throughout the Mediterranean and Near East.\n\nThe incense route stretched from southern Arabia through the Arabian Peninsula to the Mediterranean ports. Caravans consisting of hundreds of camels transported these precious resins across the desert, protected by armed guards. The trade brought immense wealth to the kingdoms of ancient Yemen, financing the construction of monumental architecture and supporting sophisticated urban centers.\n\nThis trade network also facilitated cultural exchange, with ideas, technologies, and artistic styles flowing along with the commercial goods. The decline of the incense trade in the 4th century CE contributed significantly to the economic weakening of the South Arabian kingdoms.",
+                                "ar": "جعل موقع اليمن مركزًا حاسمًا في طرق التجارة القديمة للبخور. كان اللبان والمر، اللذان يُحصدان من الأشجار الأصلية في جنوب الجزيرة العربية، من بين السلع الأكثر قيمة في العالم القديم، حيث استُخدما في الاحتفالات الدينية والطب والتحنيط في جميع أنحاء البحر الأبيض المتوسط والشرق الأدنى.\n\nامتد طريق البخور من جنوب الجزيرة العربية عبر شبه الجزيرة العربية إلى الموانئ البحرية المتوسطية. نقلت القوافل المكونة من مئات الجمال هذه الراتنجات الثمينة عبر الصحراء، محمية من قبل حراس مسلحين. جلبت التجارة ثروة هائلة لممالك اليمن القديمة، وموّلت بناء العمارة الضخمة ودعمت المراكز الحضرية المتطورة.\n\nسهلت شبكة التجارة هذه أيضًا التبادل الثقافي، حيث تدفقت الأفكار والتقنيات والأساليب الفنية مع السلع التجارية. ساهم تراجع تجارة البخور في القرن الرابع الميلادي بشكل كبير في إضعاف الاقتصاد للممالك العربية الجنوبية."
+                            },
+                            "summary": {
+                                "en": "Yemen's central role in the ancient incense trade that connected civilizations",
+                                "ar": "الدور المركزي لليمن في تجارة البخور القديمة التي ربطت الحضارات"
+                            },
+                            "sources": [
+                                "Ancient trade records",
+                                "Roman historical accounts",
+                                "Archaeological evidence"
+                            ],
+                            "tags": [
+                                "trade",
+                                "frankincense",
+                                "myrrh",
+                                "caravans",
+                                "economic history"
+                            ]
+                        }
+                    ],
+                    "order": 3
+                },
+                {
+                    "id": "pre_islamic_religion",
+                    "slug": "pre-islamic-religion",
+                    "names": {
+                        "en": "Religion before Islam",
+                        "ar": "الدين قبل الإسلام"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_004",
+                            "slug": "ancient-yemeni-deities",
+                            "date": "2023-10-30",
+                            "title": {
+                                "en": "Ancient Yemeni Deities and Religious Practices",
+                                "ar": "الآلهة اليمنية القديمة والممارسات الدينية"
+                            },
+                            "content": {
+                                "en": "Pre-Islamic Yemen was characterized by a diverse religious landscape featuring polytheistic worship, Judaism, and Christianity. The dominant religion was a form of Arabian polytheism centered around the worship of celestial bodies and natural forces.\n\nThe main deity was Almaqah, the moon god, who was particularly venerated in Sabaʾ. Other important deities included Athtar (the god of Venus), Shams (the sun goddess), and various local gods and goddesses associated with specific tribes or regions. Temples and sanctuaries, such as the famous Awam Temple in Ma'rib, were centers of religious and social life.\n\nJewish communities had existed in Yemen since at least the 3rd century BCE, with significant settlements in regions like Najran. Christianity also gained followers, particularly in coastal areas and among merchants who interacted with the Byzantine Empire.\n\nThe arrival of Islam in the 7th century CE gradually transformed the religious landscape, though some pre-Islamic practices continued in modified forms.",
+                                "ar": "تميز اليمن قبل الإسلام بمشهد ديني متنوع يشمل العبادة الوثنية واليهودية والمسيحية. كان الدين السائد هو شكل من أشكال الوثنية العربية التي تركزت حول عبادة الأجرام السماوية والقوى الطبيعية.\n\nكان الإله الرئيسي هو المقة، إله القمر، الذي كان يُعبد بشكل خاص في سبأ. وشملت الآلهة المهمة الأخرى عثتر (إله الزهرة) وشمس (إلهة الشمس) وآلهة وإلهات محلية مختلفة مرتبطة بقبائل أو مناطق محددة. كانت المعابد والمقدسات، مثل معبد أوام الشهير في مأرب، مراكز للحياة الدينية والاجتماعية.\n\nكانت المجتمعات اليهودية موجودة في اليمن منذ القرن الثالث قبل الميلاد على الأقل، مع مستوطنات كبيرة في مناطق مثل نجران. كما حصلت المسيحية على أتباع، لا سيما في المناطق الساحلية وبين التجار الذين تفاعلوا مع الإمبراطورية البيزنطية.\n\nغير وصول الإسلام في القرن السابع الميلادي المشهد الديني تدريجيًا، على الرغم من استمرار بعض الممارسات قبل الإسلامية بأشكال معدلة."
+                            },
+                            "summary": {
+                                "en": "Religious diversity in pre-Islamic Yemen including polytheism, Judaism, and Christianity",
+                                "ar": "التنوع الديني في اليمن قبل الإسلام بما في ذلك الوثنية واليهودية والمسيحية"
+                            },
+                            "sources": [
+                                "Ancient inscriptions",
+                                "Historical accounts",
+                                "Archaeological studies"
+                            ],
+                            "tags": [
+                                "religion",
+                                "polytheism",
+                                "pre-Islamic",
+                                "Judaism",
+                                "Christianity"
+                            ]
+                        }
+                    ],
+                    "order": 4
+                }
+            ]
+        },
+        {
+            "id": "islamic_period",
+            "slug": "islamic-period",
+            "parent_id": null,
+            "order": 2,
+            "names": {
+                "en": "Islamic Period (7th–10th centuries)",
+                "ar": "العصر الإسلامي (القرن 7-10)"
+            },
+            "description": {
+                "en": "From the arrival of Islam through early Islamic rule",
+                "ar": "من وصول الإسلام عبر الحكم الإسلامي المبكر"
+            },
+            "subcategories": [
+                {
+                    "id": "arrival_of_islam",
+                    "slug": "arrival-of-islam",
+                    "names": {
+                        "en": "Arrival of Islam",
+                        "ar": "وصول الإسلام"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_005",
+                            "slug": "islam-adoption-yemen",
+                            "date": "2023-11-05",
+                            "title": {
+                                "en": "The Adoption of Islam in Yemen",
+                                "ar": "اعتماد الإسلام في اليمن"
+                            },
+                            "content": {
+                                "en": "Islam arrived in Yemen during the lifetime of Prophet Muhammad in the early 7th century CE. According to Islamic tradition, Yemeni delegations from various tribes traveled to Medina and accepted Islam after meeting with the Prophet. The most famous of these was the delegation from the Hamdan tribe, whose entire tribe converted to Islam in a single day.\n\nThe process of Islamization was generally peaceful, with many Yemeni tribes embracing the new religion voluntarily. Yemen played a significant role in early Islamic history, providing many companions of the Prophet and contributing to the spread of Islam to other regions.\n\nOne of the Prophet's letters to the people of Yemen, urging them to accept Islam while allowing them to maintain their local customs and traditions, demonstrated the accommodating approach that characterized the early spread of Islam in the region.",
+                                "ar": "وصل الإسلام إلى اليمن خلال حياة النبي محمد في أوائل القرن السابع الميلادي. وفقًا للتقليد الإسلامي، سافرت وفود يمنية من قبائل مختلفة إلى المدينة المنورة وقبلت الإسلام بعد لقاء النبي. كان أشهرها وفد قبيلة همدان، التي اعتنق الإسلام فيها كل القبيلة في يوم واحد.\n\nكانت عملية الأسلمة سلمية بشكل عام، حيث تبنت العديد من القبائل اليمنية الدين الجديد طواعية. لعب اليمن دورًا كبيرًا في التاريخ الإسلامي المبكر، حيث قدم العديد من صحابة النبي وساهم في انتشار الإسلام إلى مناطق أخرى.\n\nأظهرت إحدى رسائل النبي إلى أهل اليمن، التي حثهم فيها على قبول الإسلام مع السماح لهم بالاحتفاظ بعاداتهم وتقاليدهم المحلية، النهج المتساهل الذي ميز الانتشار المبكر للإسلام في المنطقة."
+                            },
+                            "summary": {
+                                "en": "Peaceful adoption of Islam during Prophet Muhammad's lifetime",
+                                "ar": "اعتماد الإسلام سلميًا خلال حياة النبي محمد"
+                            },
+                            "sources": [
+                                "Islamic historical texts",
+                                "Prophetic traditions",
+                                "Early Islamic records"
+                            ],
+                            "tags": [
+                                "Islam",
+                                "prophet Muhammad",
+                                "conversion",
+                                "early Islam"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "early_caliphates",
+                    "slug": "early-caliphates",
+                    "names": {
+                        "en": "Yemen under early Caliphates",
+                        "ar": "اليمن تحت الخلافة المبكرة"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_006",
+                            "slug": "yemen-rashidun-caliphate",
+                            "date": "2023-11-10",
+                            "title": {
+                                "en": "Yemen During the Rashidun and Umayyad Caliphates",
+                                "ar": "اليمن خلال الخلافة الراشدة والأموية"
+                            },
+                            "content": {
+                                "en": "Following the adoption of Islam, Yemen became an integral part of the Rashidun Caliphate (632-661 CE). The region was divided into several administrative districts, each governed by an appointed governor. Yemen contributed significantly to the early Islamic conquests, with Yemeni soldiers playing crucial roles in battles across the expanding Muslim world.\n\nDuring the Umayyad Caliphate (661-750 CE), Yemen remained an important province, though it experienced some unrest due to tribal conflicts and dissatisfaction with distant rule from Damascus. The Umayyads implemented a taxation system based on Islamic principles, which was generally more organized than pre-Islamic systems.\n\nYemen continued to be an important center for Islamic scholarship during this period, producing notable scholars and jurists who contributed to the development of Islamic law and theology.",
+                                "ar": "بعد اعتماد الإسلام، أصبح اليمن جزءًا لا يتجزأ من الخلافة الراشدة (632-661 م). تم تقسيم المنطقة إلى عدة مناطق إدارية، يحكم كل منها والٍ معين. ساهم اليمن بشكل كبير في الفتوحات الإسلامية المبكرة، حيث لعب الجنود اليمنيون أدوارًا حاسمة في المعارك عبر العالم الإسلامي المتنامي.\n\nخلال الخلافة الأموية (661-750 م)، ظل اليمن ولاية مهمة، على الرغم من تعرضه لبعض الاضطرابات بسبب الصراعات القبلية وعدم الرضا عن الحكم البعيد من دمشق. نفذ الأمويون نظامًا ضريبيًا قائمًا على المبادئ الإسلامية، والذي كان بشكل عام أكثر تنظيمًا من الأنظمة قبل الإسلامية.\n\nاستمر اليمن في أن يكون مركزًا مهمًا للعلم الإسلامي خلال هذه الفترة، حيث أنتج علماء وفقهاء بارزين ساهموا في تطوير الشريعة الإسلامية والعقيدة."
+                            },
+                            "summary": {
+                                "en": "Yemen's integration into early Islamic empires and administrative systems",
+                                "ar": "دمج اليمن في الإمبراطوريات الإسلامية المبكرة والأنظمة الإدارية"
+                            },
+                            "sources": [
+                                "Islamic historical chronicles",
+                                "Administrative records",
+                                "Historical studies"
+                            ],
+                            "tags": [
+                                "Rashidun",
+                                "Umayyad",
+                                "caliphate",
+                                "Islamic administration"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                },
+                {
+                    "id": "zaydi_islam",
+                    "slug": "zaydi-islam",
+                    "names": {
+                        "en": "Zaydi Islam in the north",
+                        "ar": "المذهب الزيدي في الشمال"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_007",
+                            "slug": "rise-zaydi-imamate",
+                            "date": "2023-11-15",
+                            "title": {
+                                "en": "The Rise of the Zaydi Imamate in Northern Yemen",
+                                "ar": "صعود الإمامة الزيدية في شمال اليمن"
+                            },
+                            "content": {
+                                "en": "Zaydi Islam, a branch of Shia Islam, established deep roots in northern Yemen beginning in the late 9th century. In 897 CE, Yahya ibn al-Husayn, a descendant of the Prophet Muhammad, arrived in Sa'ada and established the first Zaydi state, laying the foundation for what would become a continuous tradition of Zaydi imams ruling parts of Yemen for over a thousand years.\n\nThe Zaydi imamate system was characterized by the rule of religious scholars who claimed descent from the Prophet. This created a unique political-religious system where religious authority and political leadership were combined. The Zaydi imams generally ruled from the northern highlands, with their influence waxing and waning over the centuries.\n\nThis religious and political tradition created a distinct identity for northern Yemen that persisted through various historical periods and continues to influence Yemeni politics and society today.",
+                                "ar": "أسس الإسلام الزيدي، وهو فرع من الإسلام الشيعي، جذورًا عميقة في شمال اليمن بدءًا من أواخر القرن التاسع. في عام 897 م، وصل يحيى بن الحسين، وهو من أحفاد النبي محمد، إلى صعدة وأسس أول دولة زيدية، مما وضع الأساس لما سيصبح تقليدًا مستمرًا للأئمة الزيديين الذين حكموا أجزاء من اليمن لأكثر من ألف عام.\n\nتميز نظام الإمامة الزيدية بحكم العلماء الدينيين الذين ادعوا النسب من النبي. أنشأ هذا نظامًا سياسيًا دينيًا فريدًا حيث تم الجمع بين السلطة الدينية والقيادة السياسية. حكم الأئمة الزيديون بشكل عام من المرتفعات الشمالية، حيث تأرجح نفوذهم على مر القرون.\n\nخلق هذا التقليد الديني والسياسي هوية مميزة لشمال اليمن استمرت عبر فترات تاريخية مختلفة وتستمر في التأثير على السياسة والمجتمع اليمني حتى اليوم."
+                            },
+                            "summary": {
+                                "en": "Establishment of Zaydi Imamate in 897 CE and its enduring political-religious influence",
+                                "ar": "تأسيس الإمامة الزيدية عام 897 م وتأثيرها السياسي الديني الدائم"
+                            },
+                            "sources": [
+                                "Zaydi historical texts",
+                                "Islamic scholarship",
+                                "Historical records"
+                            ],
+                            "tags": [
+                                "Zaydi",
+                                "Shia",
+                                "Imamate",
+                                "religious authority"
+                            ]
+                        }
+                    ],
+                    "order": 3
+                }
+            ]
+        },
+        {
+            "id": "medieval",
+            "slug": "medieval",
+            "parent_id": null,
+            "order": 3,
+            "names": {
+                "en": "Medieval Yemen",
+                "ar": "اليمن في العصور الوسطى"
+            },
+            "description": {
+                "en": "Rasulid and Tahirid dynasties period",
+                "ar": "فترة الدولتين الرسولية والطاهرية"
+            },
+            "subcategories": [
+                {
+                    "id": "rasulid_tahirid",
+                    "slug": "rasulid-tahirid",
+                    "names": {
+                        "en": "Rasulid and Tahirid dynasties",
+                        "ar": "الدولتان الرسولية والطاهرية"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_008",
+                            "slug": "rasulid-dynasty-golden-age",
+                            "date": "2023-11-20",
+                            "title": {
+                                "en": "The Rasulid Dynasty: Yemen's Golden Age",
+                                "ar": "الدولة الرسولية: العصر الذهبي لليمن"
+                            },
+                            "content": {
+                                "en": "The Rasulid dynasty (1229–1454) represents one of Yemen's most prosperous and culturally vibrant periods. Founded by Nur al-Din Umar, a Turkmen military commander, the Rasulids established their capital in Ta'izz and created a sophisticated state apparatus that controlled much of Yemen and parts of the Hejaz.\n\nUnder Rasulid rule, Yemen experienced unprecedented economic growth, largely due to the revival of trade routes connecting Asia, Africa, and Europe. The dynasty invested heavily in infrastructure, constructing schools, mosques, hospitals, and public works. Notable architectural achievements include the Ashrafiyya Mosque in Ta'izz and numerous fortifications.\n\nThe Rasulids were also great patrons of learning, establishing numerous madrasas and attracting scholars from across the Muslim world. This period saw significant advancements in fields such as astronomy, medicine, agriculture, and literature.",
+                                "ar": "تمثل الدولة الرسولية (1229–1454) واحدة من أكثر فترات اليمن ازدهارًا وحيوية ثقافية. أسسها نور الدين عمر، قائد عسكري تركماني، أنشأ الرسوليون عاصمتهم في تعز وأنشأوا جهاز دولة متطورًا يسيطر على معظم اليمن وأجزاء من الحجاز.\n\nتحت الحكم الرسولي، شهد اليمن نموًا اقتصاديًا غير مسبوق، وذلك إلى حد كبير بسبب إحياء طرق التجارة التي تربط آسيا وأفريقيا وأوروبا. استثمرت الأسرة الحاكمة بكثافة في البنية التحتية، وبناء المدارس والمساجد والمستشفيات والأشغال العامة. تشمل الإنجازات المعمارية البارزة مسجد الأشرفية في تعز والعديد من التحصينات.\n\nكان الرسوليون أيضًا رعاة عظماء للعلم، حيث أنشأوا العديد من المدارس وجذبوا العلماء من جميع أنحاء العالم الإسلامي. شهدت هذه الفترة تقدمًا كبيرًا في مجالات مثل علم الفلك والطب والزراعة والأدب."
+                            },
+                            "summary": {
+                                "en": "The Rasulid dynasty (1229-1454) as a period of prosperity and cultural achievement",
+                                "ar": "الدولة الرسولية (1229-1454) كفترة ازدهار وإنجاز ثقافي"
+                            },
+                            "sources": [
+                                "Rasulid chronicles",
+                                "Architectural records",
+                                "Historical documents"
+                            ],
+                            "tags": [
+                                "Rasulid",
+                                "medieval",
+                                "Ta'izz",
+                                "golden age"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "medieval_culture",
+                    "slug": "medieval-culture",
+                    "names": {
+                        "en": "Trade, scholarship, architecture",
+                        "ar": "التجارة، العلم، العمارة"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_009",
+                            "slug": "medieval-yemeni-architecture",
+                            "date": "2023-11-25",
+                            "title": {
+                                "en": "Medieval Yemeni Architecture and Urban Development",
+                                "ar": "العمارة اليمنية في العصور الوسطى والتنمية الحضرية"
+                            },
+                            "content": {
+                                "en": "Medieval Yemen witnessed remarkable architectural and urban development, particularly under the Rasulid dynasty. Cities like Ta'izz, Zabid, and Aden became centers of architectural innovation and urban planning.\n\nCharacteristic architectural features included multistory tower houses constructed from stone and brick, elaborate geometric patterns in decorative elements, and sophisticated water management systems. The use of qamariya (stained glass windows) and intricate plasterwork (known as qadad) became hallmarks of Yemeni architectural style.\n\nUrban planning during this period emphasized both functionality and aesthetics, with cities featuring organized markets (suqs), public baths (hammams), water distribution systems, and defensive fortifications. The Great Mosque of Zabid, with its distinctive minaret and extensive library, exemplified the integration of religious, educational, and architectural excellence.\n\nThis architectural heritage not only reflected the prosperity of medieval Yemen but also demonstrated advanced engineering knowledge and aesthetic sophistication that influenced building traditions throughout the region.",
+                                "ar": "شهد اليمن في العصور الوسطى تطورًا معماريًا وحضريًا ملحوظًا، لا سيما تحت حكم الدولة الرسولية. أصبحت مدن مثل تعز وزبيد وعدن مراكز للابتكار المعماري والتخطيط الحضري.\n\nشملت الميزات المعمارية المميزة المنازل البرجية متعددة الطوابق المبنية من الحجر والطوب، والأنماط الهندسية المعقدة في العناصر الزخرفية، وأنظمة إدارة المياه المتطورة. أصبح استخدام القمريات (النوافذ الزجاجية الملونة) والجص المعقد (المعروف بالقداد) سمة مميزة للأسلوب المعماري اليمني.\n\nركز التخطيط الحضري خلال هذه الفترة على الوظيفة والجماليات، حيث تضمنت المدن أسواقًا منظمة، وحمامات عامة، وأنظمة توزيع المياه، وتحصينات دفاعية. مثل الجامع الكبير في زبيد، مع مئذنته المميزة ومكتبته الواسعة، تكامل التفوق الديني والتعليمي والمعماري.\nلم يعكس هذا التراث المعماري ازدهار اليمن في العصور الوسطى فحسب، بل أظهر أيضًا معرفة هندسية متقدمة وتطورًا جماليًا أثر على تقاليد البناء في جميع أنحاء المنطقة."
+                            },
+                            "summary": {
+                                "en": "Advanced architectural and urban planning achievements in medieval Yemen",
+                                "ar": "إنجازات معمارية وتخطيط حضري متقدمة في اليمن في العصور الوسطى"
+                            },
+                            "sources": [
+                                "Architectural studies",
+                                "UNESCO reports",
+                                "Historical documents"
+                            ],
+                            "tags": [
+                                "architecture",
+                                "urban planning",
+                                "medieval",
+                                "Rasulid"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                }
+            ]
+        },
+        {
+            "id": "ottoman_periods",
+            "slug": "ottoman-periods",
+            "parent_id": null,
+            "order": 4,
+            "names": {
+                "en": "Ottoman Periods",
+                "ar": "الفترات العثمانية"
+            },
+            "description": {
+                "en": "Ottoman rule and local resistance",
+                "ar": "الحكم العثماني والمقاومة المحلية"
+            },
+            "subcategories": [
+                {
+                    "id": "first_ottoman",
+                    "slug": "first-ottoman",
+                    "names": {
+                        "en": "First Ottoman rule",
+                        "ar": "الحكم العثماني الأول"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_010",
+                            "slug": "ottoman-conquest-yemen",
+                            "date": "2023-11-30",
+                            "title": {
+                                "en": "First Ottoman Occupation of Yemen (1538–1635)",
+                                "ar": "الاحتلال العثماني الأول لليمن (1538–1635)"
+                            },
+                            "content": {
+                                "en": "The Ottoman Empire first occupied Yemen in 1538, motivated by strategic interests in controlling Red Sea trade routes and countering Portuguese influence in the Indian Ocean. Under the leadership of Hadim Suleiman Pasha, Ottoman forces captured Aden and gradually extended their control over coastal regions and parts of the highlands.\n\nDuring this period, the Ottomans established San'a as their administrative capital and constructed fortifications, mosques, and public buildings. They implemented the Ottoman administrative system, dividing Yemen into provinces (sanjaks) and districts (kazas). However, Ottoman control was never complete, as they faced constant resistance from Zaydi imams in the northern highlands.\n\nThe first Ottoman period saw significant economic changes, with the empire attempting to monopolize the coffee trade (Yemen being the exclusive source of coffee at the time) and regulate other commercial activities. Cultural exchanges occurred, but Ottoman rule remained largely alien to most Yemenis, who maintained their distinct social and religious structures.",
+                                "ar": "احتلت الإمبراطورية العثمانية اليمن لأول مرة في عام 1538، بدافع المصالح الإستراتيجية في السيطرة على طرق التجارة في البحر الأحمر ومجابهة النفوذ البرتغالي في المحيط الهندي. تحت قيادة خادم سليمان باشا، استولت القوات العثمانية على عدن ووسعت تدريجيًا سيطرتها على المناطق الساحلية وأجزاء من المرتفعات.\n\nخلال هذه الفترة، أسس العثمانيون صنعاء عاصمة إدارية لهم وبنوا التحصينات والمساجد والمباني العامة. نفذوا النظام الإداري العثماني، وقسموا اليمن إلى ولايات (سناجق) ومقاطعات (قضاء). ومع ذلك، لم تكن السيطرة العثمانية كاملة أبدًا، حيث واجهوا مقاومة مستمرة من الأئمة الزيديين في المرتفعات الشمالية.\nشهدت الفترة العثمانية الأولى تغييرات اقتصادية كبيرة، حيث حاولت الإمبراطورية احتكار تجارة البن (كان اليمن المصدر الحصري للبن في ذلك الوقت) وتنظيم الأنشطة التجارية الأخرى. حدثت تبادلات ثقافية، لكن الحكم العثماني ظل غريبًا إلى حد كبير على معظم اليمنيين، الذين حافظوا على هياكلهم الاجتماعية والدينية المميزة."
+                            },
+                            "summary": {
+                                "en": "Ottoman occupation from 1538-1635 focused on controlling trade routes",
+                                "ar": "الاحتلال العثماني من 1538-1635 ركز على السيطرة على طرق التجارة"
+                            },
+                            "sources": [
+                                "Ottoman archives",
+                                "Yemeni chronicles",
+                                "Historical studies"
+                            ],
+                            "tags": [
+                                "Ottoman",
+                                "occupation",
+                                "coffee trade",
+                                "administration"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "second_ottoman",
+                    "slug": "second-ottoman",
+                    "names": {
+                        "en": "Second Ottoman rule",
+                        "ar": "الحكم العثماني الثاني"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_011",
+                            "slug": "second-ottoman-occupation",
+                            "date": "2023-12-01",
+                            "title": {
+                                "en": "Second Ottoman Occupation (1872–1918)",
+                                "ar": "الاحتلال العثماني الثاني (1872–1918)"
+                            },
+                            "content": {
+                                "en": "The Ottomans returned to Yemen in 1872, this time motivated by imperial competition with European powers and concerns about securing their southern flank. Under the leadership of Ahmed Muhtar Pasha, Ottoman forces captured San'a and reestablished control over much of Yemen.\n\nThis second occupation was more systematic than the first, with the Ottomans implementing modernizing reforms known as the Tanzimat. They established telegraph lines, improved infrastructure, and attempted to centralize administration. However, these reforms often clashed with traditional Yemeni social structures and were resisted by local populations.\n\nThe Ottoman government faced particularly fierce resistance from Imam Yahya Muhammad Hamid ed-Din, who led a sustained rebellion against Ottoman rule. This period of conflict drained Ottoman resources and contributed to the empire's weakening position before World War I. Ottoman rule in Yemen ended definitively in 1918 following the empire's defeat in the war.",
+                                "ar": "عاد العثمانيون إلى اليمن في عام 1872، وهذه المرة بدافع المنافسة الإمبراطورية مع القوى الأوروبية والمخاوف بشأن تأمين جناحهم الجنوبي. تحت قيادة أحمد مختار باشا، استولت القوات العثمانية على صنعاء وأعادت السيطرة على معظم اليمن.\n\nكان هذا الاحتلال الثاني أكثر منهجية من الأول، حيث نفذ العثمانيون إصلاحات تحديثية تعرف بالتanzimat. أسسوا خطوط التلغراف وحسّنوا البنية التحتية وحاولوا مركزية الإدارة. ومع ذلك، اصطدمت هذه الإصلاحات غالبًا بالهياكل الاجتماعية اليمنية التقليدية وقاومتها السكان المحليون.\nواجهت الحكومة العثمانية مقاومة شرسة بشكل خاص من الإمام يحيى محمد حميد الدين، الذي قاد تمردًا مستمرًا ضد الحكم العثماني. استنزفت هذه الفترة من الصراع موارد العثمانيين وساهمت في إضعاف موقع الإمبراطورية قبل الحرب العالمية الأولى. انتهى الحكم العثماني في اليمن بشكل نهائي في عام 1918 بعد هزيمة الإمبراطورية في الحرب."
+                            },
+                            "summary": {
+                                "en": "Ottoman reoccupation from 1872-1918 with modernization attempts and local resistance",
+                                "ar": "إعادة الاحتلال العثماني من 1872-1918 مع محاولات التحديث والمقاومة المحلية"
+                            },
+                            "sources": [
+                                "Ottoman military records",
+                                "Historical accounts",
+                                "Diplomatic correspondence"
+                            ],
+                            "tags": [
+                                "Ottoman",
+                                "Tanzimat",
+                                "modernization",
+                                "World War I"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                },
+                {
+                    "id": "local_resistance",
+                    "slug": "local-resistance",
+                    "names": {
+                        "en": "Local resistance",
+                        "ar": "المقاومة المحلية"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_012",
+                            "slug": "yemeni-resistance-ottoman",
+                            "date": "2023-12-05",
+                            "title": {
+                                "en": "Yemeni Resistance Against Ottoman Rule",
+                                "ar": "المقاومة اليمنية ضد الحكم العثماني"
+                            },
+                            "content": {
+                                "en": "Yemeni resistance to Ottoman rule took various forms across different regions and periods. In the northern highlands, Zaydi imams led persistent military campaigns against Ottoman forces, utilizing the region's rugged terrain to their advantage. These conflicts were both political and religious, as the Sunni Ottoman Empire sought to extend its authority over the Zaydi Shia population.\n\nResistance also manifested through non-cooperation, tax evasion, and preservation of local customs and legal systems. Many Yemeni tribes maintained their autonomy even during periods of nominal Ottoman control, refusing to recognize Ottoman authority beyond what was absolutely necessary.\n\nThe most significant resistance movement emerged in the late 19th and early 20th centuries under Imam Yahya Muhammad Hamid ed-Din, whose forces successfully confined Ottoman control to major cities and garrison towns. This resistance laid the groundwork for the establishment of an independent Yemeni state following the Ottoman withdrawal in 1918.",
+                                "ar": "اتخذت المقاومة اليمنية للحكم العثماني أشكالًا مختلفة عبر مناطق وفترات مختلفة. في المرتفعات الشمالية، قاد الأئمة الزيديون حملات عسكرية مستمرة ضد القوات العثمانية، مستفيدين من التضاريس الوعرة في المنطقة. كانت هذه الصراعات سياسية ودينية، حيث سعت الإمبراطورية العثمانية السنية إلى توسيع سلطتها على السكان الشيعة الزيديين.\nتجلت المقاومة أيضًا من خلال عدم التعاون، والتهرب الضريبي، والحفاظ على العادات والأنظمة القانونية المحلية. حافظت العديد من القبائل اليمنية على استقلاليتها حتى خلال فترات السيطرة العثمانية الاسمية، ورفضت الاعتراف بالسلطة العثمانية إلا بما هو ضروري للغاية.\nبرزت حركة المقاومة الأكثر أهمية في أواخر القرن التاسع عشر وأوائل القرن العشرين تحت قيادة الإمام يحيى محمد حميد الدين، الذي حصرت قواته بنجاح السيطرة العثمانية في المدن الرئيسية والبلدات الحامية. وضعت هذه المقاومة الأساس لإنشاء دولة يمنية مستقلة بعد انسحاب العثمانيين في عام 1918."
+                            },
+                            "summary": {
+                                "en": "Diverse forms of resistance against Ottoman occupation across Yemen",
+                                "ar": "أشكال متنوعة من المقاومة ضد الاحتلال العثماني في جميع أنحاء اليمن"
+                            },
+                            "sources": [
+                                "Yemeni resistance accounts",
+                                "Historical records",
+                                "Tribal histories"
+                            ],
+                            "tags": [
+                                "resistance",
+                                "Zaydi",
+                                "tribal",
+                                "independence"
+                            ]
+                        }
+                    ],
+                    "order": 3
+                }
+            ]
+        },
+        {
+            "id": "british_south",
+            "slug": "british-south",
+            "parent_id": null,
+            "order": 5,
+            "names": {
+                "en": "British South Yemen",
+                "ar": "اليمن الجنوبي البريطاني"
+            },
+            "description": {
+                "en": "Colonial period in southern Yemen",
+                "ar": "الفترة الاستعمارية في جنوب اليمن"
+            },
+            "subcategories": [
+                {
+                    "id": "aden_port",
+                    "slug": "aden-port",
+                    "names": {
+                        "en": "Aden as a port",
+                        "ar": "عدن كميناء"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_013",
+                            "slug": "aden-port-history",
+                            "date": "2023-12-10",
+                            "title": {
+                                "en": "Aden: From Ancient Port to British Colony",
+                                "ar": "عدن: من ميناء قديم إلى مستعمرة بريطانية"
+                            },
+                            "content": {
+                                "en": "Aden's strategic location at the mouth of the Red Sea made it a vital trading hub for centuries. The British East India Company first established a presence there in 1839, initially as a coaling station for steamships traveling between Britain and India. Following the opening of the Suez Canal in 1869, Aden's importance increased dramatically as it became a crucial refueling and supply point along the new shipping route to Asia.\n\nUnder British rule, Aden developed into a major commercial center and one of the busiest ports in the world. The British constructed modern port facilities, established a free trade zone, and developed infrastructure including roads, schools, and hospitals. The city's population grew rapidly with an influx of traders, workers, and administrators from various parts of the British Empire and beyond.\n\nAden's cosmopolitan character during this period reflected its international importance, with communities of Arabs, Jews, Indians, Somalis, and Europeans coexisting in the bustling port city. However, this development occurred within a colonial framework that privileged British interests and created social hierarchies.",
+                                "ar": "جعل الموقع الاستراتيجي لعدن عند مدخل البحر الأحمر منها مركزًا تجاريًا حيويًا لقرون. أسست شركة الهند الشرقية البريطانية وجودًا هناك لأول مرة في عام 1839، في البداية كمحطة فحم للسفن البخارية التي تسافر بين بريطانيا والهند. بعد افتتاح قناة السويس في عام 1869، زادت أهمية عدن بشكل كبير حيث أصبحت نقطة تزويد وإمداد حاسمة على طول طريق الشحن الجديد إلى آسيا.\nتحت الحكم البريطاني، تطورت عدن لتصبح مركزًا تجاريًا رئيسيًا وأحد أكثر الموانئ ازدحامًا في العالم. بنى البريطانيون مرافق ميناء حديثة، وأنشأوا منطقة تجارة حرة، وطوروا البنية التحتية بما في ذلك الطرق والمدارس والمستشفيات. نما سكان المدينة بسرعة مع تدفق التجار والعمال والإداريين من أجزاء مختلفة من الإمبراطورية البريطانية وخارجها.\nعكست الطابع الكوني لعدن خلال هذه الفترة أهميتها الدولية، مع مجتمعات من العرب واليهود والهنود والصوماليين والأوروبيين الذين تعايشوا في مدينة الميناء الصاخبة. ومع ذلك، حدث هذا التطور ضمن إطار استعماري فضل المصالح البريطانية وخلق تسلسلات هرمية اجتماعية."
+                            },
+                            "summary": {
+                                "en": "Aden's transformation under British rule into a major global port",
+                                "ar": "تحول عدن تحت الحكم البريطاني إلى ميناء عالمي رئيسي"
+                            },
+                            "sources": [
+                                "British colonial records",
+                                "Port authority archives",
+                                "Historical accounts"
+                            ],
+                            "tags": [
+                                "Aden",
+                                "port",
+                                "British",
+                                "colonial",
+                                "trade"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "protectorates",
+                    "slug": "protectorates",
+                    "names": {
+                        "en": "Protectorates",
+                        "ar": "المحميات"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_014",
+                            "slug": "aden-protectorates",
+                            "date": "2023-12-12",
+                            "title": {
+                                "en": "The Aden Protectorates: British Indirect Rule",
+                                "ar": "محميات عدن: الحكم البريطاني غير المباشر"
+                            },
+                            "content": {
+                                "en": "Beyond the Aden Colony, Britain established a system of protectorates over the hinterland, divided into the Western Aden Protectorate and Eastern Aden Protectorate. These protectorates comprised numerous sultanates, emirates, and sheikhdoms that Britain governed through indirect rule, signing treaties with local rulers that granted Britain control over foreign relations and defense in exchange for protection and subsidies.\n\nThis system allowed Britain to maintain control over the region with minimal direct administration and military presence. Local rulers retained autonomy over internal affairs but were bound by treaty obligations to Britain. The protectorate system created a patchwork of political entities with varying degrees of autonomy and development.\n\nBritish influence in the protectorates focused primarily on securing trade routes, preventing other European powers from establishing a presence, and maintaining stability along the borders of the Aden Colony. Limited investment in infrastructure and social services in the protectorates contrasted with the development seen in Aden itself, creating disparities that would have lasting political consequences.",
+                                "ar": "خارج مستعمرة عدن، أنشأت بريطانيا نظامًا من المحميات على المناطق الداخلية، مقسمة إلى محمية عدن الغربية ومحمية عدن الشرقية. شملت هذه المحميات سلطنات وإمارات ومشيخات عديدة حكمتها بريطانيا من خلال الحكم غير المباشر، حيث وقعت معاهدات مع الحكام المحليين منحت بريطانيا السيطرة على العلاقات الخارجية والدفاع مقابل الحماية والإعانات.\nسمح هذا النظام لبريطانيا بالحفاظ على السيطرة على المنطقة بأقل قدر ممكن من الإدارة المباشرة والوجود العسكري. احتفظ الحكام المحليون بالاستقلالية في الشؤون الداخلية ولكنهم كانوا ملزمين بالتزامات معاهدية تجاه بريطانيا. أنشأ نظام المحمية فسيفساء من الكيانات السياسية بدرجات متفاوتة من الاستقلالية والتنمية.\nركز النفوذ البريطاني في المحميات بشكل أساسي على تأمين طرق التجارة، ومنع القوى الأوروبية الأخرى من إنشاء وجود، والحفاظ على الاستقرار على طول حدود مستعمرة عدن. شكل الاستثمار المحدود في البنية التحتية والخدمات الاجتماعية في المحميات تناقضًا مع التطور الذي شوهد في عدن نفسها، مما خلق تفاوتات سيكون لها عواقب سياسية طويلة الأمد."
+                            },
+                            "summary": {
+                                "en": "British indirect rule through treaties with local rulers in hinterland protectorates",
+                                "ar": "الحكم البريطاني غير المباشر من خلال المعاهدات مع الحكام المحليين في محميات المناطق الداخلية"
+                            },
+                            "sources": [
+                                "British treaty records",
+                                "Colonial office documents",
+                                "Historical studies"
+                            ],
+                            "tags": [
+                                "protectorates",
+                                "indirect rule",
+                                "treaties",
+                                "British administration"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                },
+                {
+                    "id": "colonial_admin",
+                    "slug": "colonial-admin",
+                    "names": {
+                        "en": "Colonial administration",
+                        "ar": "الإدارة الاستعمارية"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_015",
+                            "slug": "british-colonial-administration",
+                            "date": "2023-12-14",
+                            "title": {
+                                "en": "British Colonial Administration in South Yemen",
+                                "ar": "الإدارة الاستعمارية البريطانية في جنوب اليمن"
+                            },
+                            "content": {
+                                "en": "British administration in South Yemen developed a dual structure: direct rule in the Aden Colony and indirect rule in the hinterland protectorates. In Aden, British authorities established modern governmental institutions, including a legislative council (though with limited local representation), a judiciary, and administrative departments for health, education, and public works.\n\nThe colonial economy was oriented toward serving British imperial interests, particularly the maintenance of shipping routes to India and the Far East. Aden's economy centered on the port, the British military base, and related services. British policies generally favored the development of Aden as a commercial and strategic hub while neglecting agricultural and industrial development in the hinterland.\n\nSocially, colonial administration created hierarchies that privileged British officials and certain local elites while marginalizing the majority of the population. Educational opportunities were limited and primarily served colonial administrative needs. This system generated growing discontent that would eventually fuel nationalist movements seeking independence from British rule.",
+                                "ar": "تطورت الإدارة البريطانية في جنوب اليمن إلى هيكل مزدوج: الحكم المباشر في مستعمرة عدن والحكم غير المباشر في محميات المناطق الداخلية. في عدن، أنشأت السلطات البريطانية مؤسسات حكومية حديثة، بما في ذلك مجلس تشريعي (مع تمثيل محلي محدود)، وقضاء، ودوائر إدارية للصحة والتعليم والأشغال العامة.\nكان الاقتصاد الاستعماري موجهًا لخدمة المصالح الإمبراطورية البريطانية، ولا سيما الحفاظ على طرق الشحن إلى الهند والشرق الأقصى. تركز اقتصاد عدن على الميناء والقاعدة العسكرية البريطانية والخدمات ذات الصلة. فضلت السياسات البريطانية عمومًا تطوير عدن كمركز تجاري واستراتيجي بينما أهملت التنمية الزراعية والصناعية في المناطق الداخلية.\nاجتماعيًا، خلقت الإدارة الاستعمارية تسلسلات هرمية فضلت المسؤولين البريطانيين وبعض النخب المحلية بينما همشت غالبية السكان. كانت الفرص التعليمية محدودة وخدمت في المقام الأول الاحتياجات الإدارية الاستعمارية. أنتج هذا النظام استياءً متزايدًا من شأنه أن يغذي في النهاية الحركات القومية التي تسعى إلى الاستقلال عن الحكم البريطاني."
+                            },
+                            "summary": {
+                                "en": "Dual administrative system with direct rule in Aden and indirect rule in protectorates",
+                                "ar": "نظام إداري مزدوج مع حكم مباشر في عدن وحكم غير مباشر في المحميات"
+                            },
+                            "sources": [
+                                "Colonial administrative records",
+                                "British government documents",
+                                "Historical analysis"
+                            ],
+                            "tags": [
+                                "colonial administration",
+                                "British rule",
+                                "Aden Colony",
+                                "government"
+                            ]
+                        }
+                    ],
+                    "order": 3
+                }
+            ]
+        },
+        {
+            "id": "north_south_20th",
+            "slug": "north-south-20th",
+            "parent_id": null,
+            "order": 6,
+            "names": {
+                "en": "North & South Yemen (20th century)",
+                "ar": "اليمن الشمالي والجنوبي (القرن العشرين)"
+            },
+            "description": {
+                "en": "Separate states period before unification",
+                "ar": "فترة الدولتين المنفصلتين قبل الوحدة"
+            },
+            "subcategories": [
+                {
+                    "id": "mutawakkilite",
+                    "slug": "mutawakkilite",
+                    "names": {
+                        "en": "Mutawakkilite Kingdom (North)",
+                        "ar": "المملكة المتوكلية (الشمال)"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_016",
+                            "slug": "mutawakkilite-kingdom-history",
+                            "date": "2023-12-15",
+                            "title": {
+                                "en": "The Mutawakkilite Kingdom of Yemen",
+                                "ar": "المملكة المتوكلية اليمنية"
+                            },
+                            "content": {
+                                "en": "Following the collapse of the Ottoman Empire, Imam Yahya Muhammad Hamid ed-Din declared the independence of the Mutawakkilite Kingdom of Yemen in 1918. The kingdom was named after the Imam's title \"al-Mutawakkil 'ala Allah\" (He who relies on God). Imam Yahya sought to consolidate control over territories claimed by Yemen, leading to border conflicts with Saudi Arabia and Britain.\n\nThe Mutawakkilite Kingdom maintained a traditional, isolationist policy, resisting modernization and foreign influence. Government was highly centralized around the Imam, who combined religious and political authority. The kingdom's economy remained largely agrarian, with limited infrastructure development and educational opportunities.\n\nImam Yahya's rule ended with his assassination in 1948 during a brief coup attempt. His son Ahmad succeeded him and continued conservative policies, though with slightly more openness to foreign relations. The kingdom faced increasing internal dissent, particularly from modernist and republican elements, culminating in the 1962 revolution that overthrew the monarchy and established the Yemen Arab Republic.",
+                                "ar": "بعد انهيار الإمبراطورية العثمانية، أعلن الإمام يحيى محمد حميد الدين استقلال المملكة المتوكلية اليمنية في عام 1918. سُميت المملكة على لقب الإمام \"المتوكل على الله\". سعى الإمام يحيى إلى توحيد السيطرة على الأراضي التي تطالب بها اليمن، مما أدى إلى صراعات حدودية مع السعودية وبريطانيا.\nحافظت المملكة المتوكلية على سياسة تقليدية وعزلية، ومقاومة التحديث والتأثير الأجنبي. كان الحكم مركزيًا للغاية حول الإمام، الذي جمع بين السلطة الدينية والسياسية. ظل اقتصاد المملكة زراعيًا إلى حد كبير، مع تنمية محدودة للبنية التحتية والفرص التعليمية.\nانتهى حكم الإمام يحيى باغتياله في عام 1948 خلال محاولة انقلابية قصيرة. خلفه ابنه أحمد واستمر في السياسات المحافظة، وإن كان بانفتاح طفيف أكثر على العلاقات الخارجية. واجهت المملكة معارضة داخلية متزايدة، لا سيما من العناصر التحديثية والجمهورية، مما بلغ ذروته في ثورة 1962 التي أطاحت بالملكية وأسست الجمهورية العربية اليمنية."
+                            },
+                            "summary": {
+                                "en": "Traditional monarchy from 1918-1962 characterized by isolationism and religious rule",
+                                "ar": "ملكية تقليدية من 1918-1962 تميزت بالعزلة والحكم الديني"
+                            },
+                            "sources": [
+                                "Yemeni royal archives",
+                                "Historical records",
+                                "Political studies"
+                            ],
+                            "tags": [
+                                "Mutawakkilite",
+                                "monarchy",
+                                "Imam Yahya",
+                                "North Yemen"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "pdr_yemen",
+                    "slug": "pdr-yemen",
+                    "names": {
+                        "en": "People's Democratic Republic of Yemen (South)",
+                        "ar": "جمهورية اليمن الديمقراطية الشعبية (الجنوب)"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_017",
+                            "slug": "south-yemen-socialist-state",
+                            "date": "2023-12-16",
+                            "title": {
+                                "en": "South Yemen: The Only Arab Socialist State",
+                                "ar": "اليمن الجنوبي: الدولة الاشتراكية العربية الوحيدة"
+                            },
+                            "content": {
+                                "en": "Following a protracted independence struggle against British rule, South Yemen gained independence on November 30, 1967, becoming the People's Republic of South Yemen. In 1970, it was renamed the People's Democratic Republic of Yemen (PDRY), establishing the Arab world's only explicitly Marxist-Leninist state.\n\nThe PDRY implemented radical socialist policies, including nationalization of industry, land reform, and the establishment of a planned economy. The government invested heavily in education and healthcare, achieving significant improvements in literacy rates and public health. Women's rights were advanced through legal reforms that granted equality in marriage, divorce, and employment.\n\nPolitically, the PDRY was characterized by a single-party system under the Yemeni Socialist Party, close relations with the Soviet Union and other Eastern Bloc countries, and support for revolutionary movements throughout the region. However, internal divisions within the ruling party, economic difficulties, and tensions with North Yemen marked the state's existence. The PDRY ultimately unified with North Yemen in 1990 following the collapse of its Soviet patron.",
+                                "ar": "بعد كفاح استقلال طويل ضد الحكم البريطاني، حصل جنوب اليمن على الاستقلال في 30 نوفمبر 1967، ليصبح جمهورية اليمن الجنوبية الشعبية. في عام 1970، أعيدت تسميتها إلى جمهورية اليمن الديمقراطية الشعبية، مما أسس الدولة الماركسية اللينينية الوحيدة صراحة في العالم العربي.\nنفذت جمهورية اليمن الديمقراطية الشعبية سياسات اشتراكية جذرية، بما في ذلك تأميم الصناعة، والإصلاح الزراعي، وإنشاء اقتصاد مخطط. استثمرت الحكومة بكثافة في التعليم والرعاية الصحية، وحققت تحسينات كبيرة في معدلات الإلمام بالقراءة والكتابة والصحة العامة. تم تعزيز حقوق المرأة من خلال الإصلاحات القانونية التي منحت المساواة في الزواج والطلاق والتوظيف.\nسياسيًا، تميزت جمهورية اليمن الديمقراطية الشعبية بنظام الحزب الواحد تحت حزب اليمن الاشتراكي، والعلاقات الوثيقة مع الاتحاد السوفيتي ودول الكتلة الشرقية الأخرى، ودعم حركات التحرر في جميع أنحاء المنطقة. ومع ذلك، شهدت وجود الدولة انقسامات داخلية داخل الحزب الحاكم، وصعوبات اقتصادية، وتوترات مع شمال اليمن. اتحدت جمهورية اليمن الديمقراطية الشعبية في النهاية مع شمال اليمن في عام 1990 بعد انهيار راعيها السوفيتي."
+                            },
+                            "summary": {
+                                "en": "Marxist-Leninist state from 1967-1990 with socialist policies and Soviet alignment",
+                                "ar": "دولة ماركسية لينينية من 1967-1990 مع سياسات اشتراكية وتحالف سوفيتي"
+                            },
+                            "sources": [
+                                "PDRY government documents",
+                                "Socialist party records",
+                                "Historical analysis"
+                            ],
+                            "tags": [
+                                "PDRY",
+                                "socialist",
+                                "Marxist",
+                                "South Yemen",
+                                "Soviet Union"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                }
+            ]
+        },
+        {
+            "id": "unification",
+            "slug": "unification",
+            "parent_id": null,
+            "order": 7,
+            "names": {
+                "en": "Unification (1990)",
+                "ar": "الوحدة (1990)"
+            },
+            "description": {
+                "en": "Process and aftermath of Yemeni unification",
+                "ar": "عملية ومآلات الوحدة اليمنية"
+            },
+            "subcategories": [
+                {
+                    "id": "political_background",
+                    "slug": "political-background",
+                    "names": {
+                        "en": "Political background",
+                        "ar": "الخلفية السياسية"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_018",
+                            "slug": "yemen-unification-process",
+                            "date": "2023-12-18",
+                            "title": {
+                                "en": "The Road to Yemeni Unification",
+                                "ar": "الطريق إلى الوحدة اليمنية"
+                            },
+                            "content": {
+                                "en": "The unification of North and South Yemen in 1990 was the culmination of decades of intermittent negotiations, conflicts, and shifting political dynamics between the two Yemeni states. Despite their different political systems—the Yemen Arab Republic (North) being conservative and tribal, and the People's Democratic Republic of Yemen (South) being Marxist-Leninist—both governments had maintained the goal of unification as a central tenet of their respective ideologies.\n\nSeveral factors converged to make unification possible in 1990: the collapse of Soviet support for South Yemen weakened its position, economic difficulties in both states created incentives for integration, and personal relationships between northern and southern leaders facilitated negotiations. The process was formalized through the 1990 Agreement on Unity, which outlined a transition period and power-sharing arrangements.\n\nUnification was declared on May 22, 1990, with Sana'a as the capital and Ali Abdullah Saleh (former president of North Yemen) as president, and Ali Salim al-Beidh (former secretary-general of South Yemen's ruling party) as vice president. The new Republic of Yemen adopted a democratic constitution and multi-party system, representing a historic moment of Arab unity.",
+                                "ar": "كانت وحدة شمال وجنوب اليمن في عام 1990 تتويجًا لعقود من المفاوضات المتقطعة، والصراعات، والديناميكيات السياسية المتغيرة بين الدولتين اليمنيتين. على الرغم من أنظمتهما السياسية المختلفة—الجمهورية العربية اليمنية (الشمال) كانت محافظة قبلية، وجمهورية اليمن الديمقراطية الشعبية (الجنوب) كانت ماركسية لينينية—حافظت كلتا الحكومتين على هدف الوحدة كمبدأ أساسي في أيديولوجياتهما على التوالي.\nاجتمعت عدة عوامل لجعل الوحدة ممكنة في عام 1990: انهيار الدعم السوفيتي لليمن الجنوبي أضعف موقفه، والصعوبات الاقتصادية في كلا الدولتين خلقت حوافز للتكامل، وسهلت العلاقات الشخصية بين قادة الشمال والجنوب المفاوضات. تم إضفاء الطابع الرسمي على العملية من خلال اتفاق الوحدة لعام 1990، الذي حدد فترة انتقالية وترتيبات تقاسم السلطة.\nأعلنت الوحدة في 22 مايو 1990، مع صنعاء كعاصمة وعلي عبد الله صالح (الرئيس السابق لليمن الشمالي) رئيسًا، وعلي سالم البيض (الأمين العام السابق للحزب الحاكم في اليمن الجنوبي) نائبًا للرئيس. تبنت جمهورية اليمن الجديدة دستورًا ديمقراطيًا ونظامًا متعدد الأحزاب، مما يمثل لحظة تاريخية للوحدة العربية."
+                            },
+                            "summary": {
+                                "en": "Political process leading to the 1990 unification of North and South Yemen",
+                                "ar": "العملية السياسية المؤدية إلى وحدة شمال وجنوب اليمن في عام 1990"
+                            },
+                            "sources": [
+                                "Unification agreements",
+                                "Political records",
+                                "Historical analysis"
+                            ],
+                            "tags": [
+                                "unification",
+                                "1990",
+                                "Republic of Yemen",
+                                "unity agreement"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "challenges",
+                    "slug": "challenges",
+                    "names": {
+                        "en": "Challenges",
+                        "ar": "التحديات"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_019",
+                            "slug": "post-unification-challenges",
+                            "date": "2023-12-20",
+                            "title": {
+                                "en": "Post-Unification Challenges and Conflicts",
+                                "ar": "تحديات ونزاعات ما بعد الوحدة"
+                            },
+                            "content": {
+                                "en": "Despite the initial optimism surrounding Yemeni unification, the newly united state faced significant challenges that tested its cohesion. The integration of two states with different political cultures, economic systems, and bureaucratic structures proved difficult. Southerners increasingly felt marginalized in the unified state, perceiving that northern elites dominated political and economic power.\n\nEconomic disparities between the more developed North and the socialist South created tensions, exacerbated by the withdrawal of Soviet aid and the 1990-1991 Gulf War, which resulted in the expulsion of approximately one million Yemeni workers from Gulf states and the loss of their remittances. The country also faced the challenge of integrating two different military and security establishments.\n\nThese tensions culminated in the 1994 civil war, sparked by southern leaders' declaration of secession. The war lasted approximately two months and resulted in a military victory for northern forces. While the unity of Yemen was preserved, the conflict deepened north-south divisions and created lasting grievances that continue to influence Yemeni politics today. The post-war period saw increased centralization of power in Sana'a and the marginalization of southern political forces.",
+                                "ar": "على الرغم من التفاؤل الأولي المحيط بوحدة اليمن، واجهت الدولة الموحدة حديثًا تحديات كبيرة اختبرت تماسكها. أثبت دمج دولتين بثقافات سياسية وأنظمة اقتصادية وهياكل بيروقراطية مختلفة صعوبة. شعر الجنوبيون بشكل متزايد بالتهميش في الدولة الموحدة، مدركين أن النخب الشمالية تهيمن على السلطة السياسية والاقتصادية.\nخلقت التفاوتات الاقتصادية بين الشمال الأكثر تطورًا والجنوب الاشتراكي توترات، تفاقمت بسبب انسحاب المساعدات السوفيتية وحرب الخليج 1990-1991، والتي أدت إلى طرد حوالي مليون عامل يمني من دول الخليج وفقدان تحويلاتهم. واجهت البلاد أيضًا تحدي دمج مؤسستين عسكريتين وأمنيتين مختلفتين.\nبلغت هذه التوترات ذروتها في الحرب الأهلية عام 1994، التي أشعلها إعلان قادة الجنوب الانفصال. استمرت الحرب حوالي شهرين وأسفرت عن انتصار عسكري للقوات الشمالية. بينما تم الحفاظ على وحدة اليمن، عمق الصراع الانقسامات بين الشمال والجنوب وخلق مظالم دائمة لا تزال تؤثر على السياسة اليمنية حتى اليوم. شهدت فترة ما بعد الحرب زيادة في مركزية السلطة في صنعاء وتهميش القوى السياسية الجنوبية."
+                            },
+                            "summary": {
+                                "en": "Difficulties in integrating different systems leading to the 1994 civil war",
+                                "ar": "صعوبات في دمج أنظمة مختلفة أدت إلى الحرب الأهلية عام 1994"
+                            },
+                            "sources": [
+                                "Post-unification records",
+                                "Economic analysis",
+                                "Political studies"
+                            ],
+                            "tags": [
+                                "post-unification",
+                                "challenges",
+                                "civil war",
+                                "1994",
+                                "integration"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                }
+            ]
+        },
+        {
+            "id": "modern",
+            "slug": "modern",
+            "parent_id": null,
+            "order": 8,
+            "names": {
+                "en": "Modern Yemen",
+                "ar": "اليمن الحديث"
+            },
+            "description": {
+                "en": "Contemporary period with factual focus",
+                "ar": "الفترة المعاصرة مع تركيز واقعي"
+            },
+            "subcategories": [
+                {
+                    "id": "civil_conflicts",
+                    "slug": "civil-conflicts",
+                    "names": {
+                        "en": "Civil conflicts",
+                        "ar": "النزاعات الأهلية"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_020",
+                            "slug": "yemeni-civil-conflicts",
+                            "date": "2023-12-22",
+                            "title": {
+                                "en": "Civil Conflicts in Modern Yemen",
+                                "ar": "النزاعات الأهلية في اليمن الحديث"
+                            },
+                            "content": {
+                                "en": "Modern Yemen has experienced multiple civil conflicts that have significantly shaped its political landscape. The Sa'dah insurgency (also known as the Houthi insurgency) began in 2004 when the government of President Ali Abdullah Saleh attempted to arrest Hussein Badreddin al-Houthi, a Zaydi religious leader from the north. The conflict reflected long-standing grievances among northern Zaydi communities regarding political marginalization and economic underdevelopment.\n\nThe Southern Movement emerged in 2007, advocating for the restoration of South Yemen's independence or greater autonomy within a federal system. This movement grew out of southern discontent with perceived northern domination and the economic and political marginalization of southern regions since the 1994 civil war.\n\nThese conflicts, along with the rise of Al-Qaeda in the Arabian Peninsula (AQAP) and the emergence of separatist movements in various regions, created a complex security environment. The government's responses to these challenges often involved military force, which sometimes exacerbated tensions and contributed to cycles of violence. These internal conflicts weakened state institutions and created vulnerabilities that would have significant consequences in later years.",
+                                "ar": "شهد اليمن الحديث نزاعات أهلية متعددة شكلت بشكل كبير مشهده السياسي. بدأت تمرد صعدة (المعروف أيضًا باسم التمرد الحوثي) في عام 2004 عندما حاولت حكومة الرئيس علي عبد الله صالح اعتقال حسين بدر الدين الحوثي، وهو زعيم ديني زيدي من الشمال. عكست الصراع مظالم طويلة الأمد بين المجتمعات الزيدية الشمالية بشأن التهميش السياسي والتخلف الاقتصادي.\nظهرت الحراك الجنوبي في عام 2007، داعية إلى استعادة استقلال جنوب اليمن أو حكم ذاتي أكبر داخل نظام فيدرالي. نما هذا الحراك من الاستياء الجنوبي من الهيمنة الشمالية المدركة والتهميش الاقتصادي والسياسي للمناطق الجنوبية منذ الحرب الأهلية عام 1994.\nخلقت هذه الصراعات، إلى جانب صعود القاعدة في شبه الجزيرة العربية وظهور حركات انفصالية في مناطق مختلفة، بيئة أمنية معقدة. غالبًا ما تضمنت ردود الحكومة على هذه التحديات القوة العسكرية، مما فاقم التوترات في بعض الأحيان وساهم في دورات العنف. أضعفت هذه النزاعات الداخلية مؤسسات الدولة وخلقت نقاط ضعف ستكون لها عواقب كبيرة في السنوات اللاحقة."
+                            },
+                            "summary": {
+                                "en": "Multiple internal conflicts including Houthi insurgency and Southern Movement",
+                                "ar": "نزاعات داخلية متعددة بما في ذلك التمرد الحوثي والحراك الجنوبي"
+                            },
+                            "sources": [
+                                "Conflict analysis",
+                                "Security studies",
+                                "Government reports"
+                            ],
+                            "tags": [
+                                "civil conflict",
+                                "Houthi",
+                                "Southern Movement",
+                                "insurgency"
+                            ]
+                        }
+                    ],
+                    "order": 1
+                },
+                {
+                    "id": "regional_influence",
+                    "slug": "regional-influence",
+                    "names": {
+                        "en": "Regional influence",
+                        "ar": "النفوذ الإقليمي"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_021",
+                            "slug": "regional-powers-yemen",
+                            "date": "2023-12-24",
+                            "title": {
+                                "en": "Regional Powers and Yemen's Geopolitical Significance",
+                                "ar": "القوى الإقليمية والأهمية الجيوسياسية لليمن"
+                            },
+                            "content": {
+                                "en": "Yemen's strategic location at the southern entrance to the Red Sea and along key maritime routes has made it an area of interest for regional powers throughout history. In the modern era, Saudi Arabia has maintained significant influence in Yemen due to shared borders, tribal connections, and economic interdependence. The Kingdom has viewed stability in Yemen as crucial to its own security and has often intervened in Yemeni affairs through diplomatic, economic, and military means.\n\nIran has developed ties with various Yemeni groups, most notably the Houthi movement, as part of its regional strategy to counter Saudi influence. This has turned Yemen into a theater of proxy conflict between regional rivals. Other Gulf states, particularly the United Arab Emirates, have also played significant roles in Yemen, both as part of the Saudi-led coalition and through their own strategic interests in southern Yemen and its coastal areas.\n\nThe Bab el-Mandeb Strait, through which much of the world's maritime trade passes, gives Yemen additional geopolitical importance. International powers, including the United States and European countries, have maintained interest in Yemen primarily due to counterterrorism concerns and the protection of shipping lanes, though their involvement has generally been less direct than that of regional actors.",
+                                "ar": "جعل الموقع الاستراتيجي لليمن عند المدخل الجنوبي للبحر الأحمر وعلى طول طرق الشحن الرئيسية منه منطقة اهتمام للقوى الإقليمية عبر التاريخ. في العصر الحديث، حافظت السعودية على نفوذ كبير في اليمن بسبب الحدود المشتركة، والروابط القبلية، والاعتماد الاقتصادي المتبادل. نظرت المملكة إلى الاستقرار في اليمن على أنه حاسم لأمنها الخاص وغالبًا ما تدخلت في الشؤون اليمنية عبر وسائل دبلوماسية واقتصادية وعسكرية.\nطورت إيران علاقات مع مجموعات يمنية مختلفة، وأبرزها الحركة الحوثية، كجزء من إستراتيجيتها الإقليمية لمواجهة النفوذ السعودي. حول هذا اليمن إلى مسرح لصراع بالوكالة بين منافسين إقليميين. لعبت دول خليجية أخرى، لا سيما الإمارات العربية المتحدة، أدوارًا مهمة في اليمن أيضًا، سواء كجزء من التحالف بقيادة السعودية أو من خلال مصالحها الإستراتيجية الخاصة في جنوب اليمن ومناطقها الساحلية.\nيمنح مضيق باب المندب، الذي يمر عبره الكثير من التجارة البحرية العالمية، اليمن أهمية جيوسياسية إضافية. حافظت القوى الدولية، بما في ذلك الولايات المتحدة والدول الأوروبية، على الاهتمام باليمن بشكل أساسي بسبب مخاوف مكافحة الإرهاب وحماية ممرات الشحن، على الرغم من أن مشاركتها كانت عمومًا أقل مباشرة من المشاركة الجهات الإقليمية."
+                            },
+                            "summary": {
+                                "en": "Competition between regional powers in Yemen due to strategic location",
+                                "ar": "منافسة بين القوى الإقليمية في اليمن بسبب الموقع الاستراتيجي"
+                            },
+                            "sources": [
+                                "Geopolitical analysis",
+                                "Regional studies",
+                                "Diplomatic reports"
+                            ],
+                            "tags": [
+                                "regional powers",
+                                "geopolitics",
+                                "Saudi Arabia",
+                                "Iran",
+                                "Bab el-Mandeb"
+                            ]
+                        }
+                    ],
+                    "order": 2
+                },
+                {
+                    "id": "current_situation",
+                    "slug": "current-situation",
+                    "names": {
+                        "en": "Current situation (factual & careful)",
+                        "ar": "الوضع الراهن (واقعي وحذر)"
+                    },
+                    "articles": [
+                        {
+                            "id": "art_022",
+                            "slug": "yemen-humanitarian-situation",
+                            "date": "2023-12-25",
+                            "title": {
+                                "en": "Yemen's Humanitarian and Economic Situation",
+                                "ar": "الوضع الإنساني والاقتصادي في اليمن"
+                            },
+                            "content": {
+                                "en": "As of recent years, Yemen has faced one of the world's most severe humanitarian crises. The ongoing conflict has resulted in widespread displacement, with millions of Yemenis internally displaced or living as refugees in neighboring countries. The country's infrastructure, including healthcare facilities, schools, and water systems, has been extensively damaged.\n\nEconomic conditions have deteriorated significantly, with the currency losing much of its value and inflation rising sharply. This has reduced purchasing power and made basic goods increasingly unaffordable for many Yemenis. The country's economy, once diverse with sectors including agriculture, fisheries, and limited industry, has contracted substantially.\n\nInternational humanitarian organizations have been active in Yemen, providing food aid, medical assistance, and other forms of support. However, access constraints, security challenges, and funding limitations have hampered relief efforts. Various diplomatic initiatives have sought to establish ceasefires and create pathways toward political resolution, though achieving sustainable peace has proven challenging given the complex web of local, regional, and international interests involved in the conflict.",
+                                "ar": "في السنوات الأخيرة، واجه اليمن واحدة من أشد الأزمات الإنسانية في العالم. أدى الصراع المستمر إلى نزوح واسع النطاق، مع نزوح ملايين اليمنيين داخليًا أو عيشهم كلاجئين في البلدان المجاورة. تضررت بنية اليمن التحتية بشكل كبير، بما في ذلك مرافق الرعاية الصحية والمدارس وأنظمة المياه.\nتدهورت الظروف الاقتصادية بشكل كبير، حيث فقدت العملة الكثير من قيمتها وارتفع التضخم بشكل حاد. هذا قلل من القوة الشرائية وجعل السلع الأساسية باهظة الثمن بشكل متزايد لكثير من اليمنيين. تقلص اقتصاد البلاد، الذي كان متنوعًا ذات يوم مع قطاعات تشمل الزراعة ومصايد الأسماك والصناعة المحدودة، بشكل كبير.\nكانت المنظمات الإنسانية الدولية نشطة في اليمن، حيث قدمت المساعدات الغذائية والمساعدة الطبية وأشكال أخرى من الدعم. ومع ذلك، عرقلت جهود الإغاثة قيود الوصول والتحديات الأمنية والقيود التمويلية. سعت مبادرات دبلوماسية مختلفة إلى إقامة وقف لإطلاق النار وخلق مسارات نحو الحل السياسي، على الرغم من أن تحقيق سلام مستدام أثبت صعوبته بالنظر إلى الشبكة المعقدة من المصالح المحلية والإقليمية والدولية المشاركة في الصراع."
+                            },
+                            "summary": {
+                                "en": "Ongoing humanitarian crisis with economic collapse and international relief efforts",
+                                "ar": "أزمة إنسانية مستمرة مع انهيار اقتصادي وجهود إغاثة دولية"
+                            },
+                            "sources": [
+                                "UN reports",
+                                "Humanitarian organization data",
+                                "Economic analysis"
+                            ],
+                            "tags": [
+                                "humanitarian",
+                                "economy",
+                                "displacement",
+                                "aid",
+                                "current situation"
+                            ]
+                        }
+                    ],
+                    "order": 3
+                }
+            ]
+        }
+    ]
+}

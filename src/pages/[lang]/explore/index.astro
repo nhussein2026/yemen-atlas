@@ -24,18 +24,18 @@ const isRTL = lang === "ar";
   title={lang === "en" ? "Explore Yemen" : "استكشف اليمن"}
 >
   <!-- Hero Section with Yemen Info Card -->
-  <div class="mb-30">
+  <div class="m-8">
     <section
       class="bg-aged-paper border border-light-stone rounded-xl shadow-sm"
     >
       <div class="p-8 lg:p-12">
         <div
-          class={`flex items-center gap-6 mb-8 ${isRTL ? "flex-row-reverse text-right" : ""}`}
+          class="flex items-center gap-6 mb-8"
         >
           <span class="text-6xl">{yemen.emoji}</span>
 
           <div>
-            <h1
+            <h1 
               class="font-serif text-5xl font-bold text-deep-archive leading-tight"
             >
               {lang === "en" ? yemen.english_name : yemen.arabic_name}
@@ -90,9 +90,9 @@ const isRTL = lang === "ar";
   </div>
 
   <!-- Governorates Section -->
-  <section class="mb-30">
+  <section class="m-8">
     <div
-      class={`flex items-center gap-4 mb-12 ${isRTL ? "flex-row-reverse text-right" : ""}`}
+      class="flex items-center gap-4 mb-12"
     >
       <div class="w-1 h-10 bg-terracotta rounded-full"></div>
       <h2 class="font-serif text-4xl font-semibold text-deep-archive">
@@ -176,7 +176,7 @@ const isRTL = lang === "ar";
   }
 
   <section
-    class="bg-aged-paper border border-light-stone rounded-xl p-8 lg:p-12"
+    class="bg-aged-paper border border-light-stone rounded-xl p-8 lg:p-12 m-8"
   >
     <h3 class="font-serif text-3xl font-semibold text-deep-archive mb-8">
       {lang === "en" ? "Quick Facts" : "حقائق سريعة"}

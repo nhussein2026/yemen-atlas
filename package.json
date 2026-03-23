@@ -9,13 +9,15 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "fetch-wikipedia astro build",
+    "preview": "fetch-wikipedia astro preview",
+    "astro": "fetch-wikipedia astro",
+    "fetch-wikipedia": "node scripts/fetch-wikipedia.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
+    "cheerio": "^1.1.2",
     "tailwindcss": "^4.1.18"
   },
   "packageManager": "yarn@4.12.0+sha512.f45ab632439a67f8bc759bf32ead036a1f413287b9042726b7cc4818b7b49e14e9423ba49b18f9e06ea4941c1ad062385b1d8760a8d5091a1a31e5f6219afca8",

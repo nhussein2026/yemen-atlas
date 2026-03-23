@@ -30,6 +30,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@tailwindcss/vite", "virtual:d05cd5ff2e58284ebd19eec344a08efab1b2a43571c46c3c76b032f95d00158cc9938e739418d5c062878387fa7297cf77cd29725f4bf7cc5e0d82e749e5fb80#npm:4.1.18"],\
           ["astro", "npm:5.16.6"],\
+          ["cheerio", "npm:1.1.2"],\
           ["tailwindcss", "npm:4.1.18"],\
           ["vite", "virtual:d05cd5ff2e58284ebd19eec344a08efab1b2a43571c46c3c76b032f95d00158cc9938e739418d5c062878387fa7297cf77cd29725f4bf7cc5e0d82e749e5fb80#npm:7.3.0"],\
           ["yemen-atlas", "workspace:."]\
@@ -1878,6 +1879,41 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cheerio", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/cheerio-npm-1.1.2-b0fb353132-10c0.zip/node_modules/cheerio/",\
+        "packageDependencies": [\
+          ["cheerio", "npm:1.1.2"],\
+          ["cheerio-select", "npm:2.1.0"],\
+          ["dom-serializer", "npm:2.0.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["domutils", "npm:3.2.2"],\
+          ["encoding-sniffer", "npm:0.2.1"],\
+          ["htmlparser2", "npm:10.0.0"],\
+          ["parse5", "npm:7.3.0"],\
+          ["parse5-htmlparser2-tree-adapter", "npm:7.1.0"],\
+          ["parse5-parser-stream", "npm:7.1.2"],\
+          ["undici", "npm:7.16.0"],\
+          ["whatwg-mimetype", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cheerio-select", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/cheerio-select-npm-2.1.0-e92bc2f296-10c0.zip/node_modules/cheerio-select/",\
+        "packageDependencies": [\
+          ["boolbase", "npm:1.0.0"],\
+          ["cheerio-select", "npm:2.1.0"],\
+          ["css-select", "npm:5.2.2"],\
+          ["css-what", "npm:6.2.2"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["domutils", "npm:3.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["chokidar", [\
       ["npm:4.0.3", {\
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/chokidar-npm-4.0.3-962354fbb4-10c0.zip/node_modules/chokidar/",\
@@ -2249,6 +2285,17 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["encoding", "npm:0.1.13"],\
           ["iconv-lite", "npm:0.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["encoding-sniffer", [\
+      ["npm:0.2.1", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/encoding-sniffer-npm-0.2.1-55db9e1e21-10c0.zip/node_modules/encoding-sniffer/",\
+        "packageDependencies": [\
+          ["encoding-sniffer", "npm:0.2.1"],\
+          ["iconv-lite", "npm:0.6.3"],\
+          ["whatwg-encoding", "npm:3.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2735,6 +2782,19 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/html-void-elements-npm-3.0.0-e1a7d1151b-10c0.zip/node_modules/html-void-elements/",\
         "packageDependencies": [\
           ["html-void-elements", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["htmlparser2", [\
+      ["npm:10.0.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/htmlparser2-npm-10.0.0-2301362da5-10c0.zip/node_modules/htmlparser2/",\
+        "packageDependencies": [\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["domutils", "npm:3.2.2"],\
+          ["entities", "npm:6.0.1"],\
+          ["htmlparser2", "npm:10.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3994,6 +4054,27 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["parse5-htmlparser2-tree-adapter", [\
+      ["npm:7.1.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/parse5-htmlparser2-tree-adapter-npm-7.1.0-02959cc692-10c0.zip/node_modules/parse5-htmlparser2-tree-adapter/",\
+        "packageDependencies": [\
+          ["domhandler", "npm:5.0.3"],\
+          ["parse5", "npm:7.3.0"],\
+          ["parse5-htmlparser2-tree-adapter", "npm:7.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["parse5-parser-stream", [\
+      ["npm:7.1.2", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/parse5-parser-stream-npm-7.1.2-94131559b2-10c0.zip/node_modules/parse5-parser-stream/",\
+        "packageDependencies": [\
+          ["parse5", "npm:7.3.0"],\
+          ["parse5-parser-stream", "npm:7.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["path-scurry", [\
       ["npm:2.0.1", {\
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/path-scurry-npm-2.0.1-7744619e5d-10c0.zip/node_modules/path-scurry/",\
@@ -4734,6 +4815,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["undici", [\
+      ["npm:7.16.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/undici-npm-7.16.0-f6b1c9157f-10c0.zip/node_modules/undici/",\
+        "packageDependencies": [\
+          ["undici", "npm:7.16.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["undici-types", [\
       ["npm:7.16.0", {\
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/undici-types-npm-7.16.0-0e23b08124-10c0.zip/node_modules/undici-types/",\
@@ -5207,6 +5297,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["whatwg-encoding", [\
+      ["npm:3.1.1", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/whatwg-encoding-npm-3.1.1-7dfe21cf7d-10c0.zip/node_modules/whatwg-encoding/",\
+        "packageDependencies": [\
+          ["iconv-lite", "npm:0.6.3"],\
+          ["whatwg-encoding", "npm:3.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["whatwg-mimetype", [\
+      ["npm:4.0.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/whatwg-mimetype-npm-4.0.0-ebb293a688-10c0.zip/node_modules/whatwg-mimetype/",\
+        "packageDependencies": [\
+          ["whatwg-mimetype", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["which", [\
       ["npm:6.0.0", {\
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/which-npm-6.0.0-48f25f0ec8-10c0.zip/node_modules/which/",\
@@ -5288,6 +5397,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@tailwindcss/vite", "virtual:d05cd5ff2e58284ebd19eec344a08efab1b2a43571c46c3c76b032f95d00158cc9938e739418d5c062878387fa7297cf77cd29725f4bf7cc5e0d82e749e5fb80#npm:4.1.18"],\
           ["astro", "npm:5.16.6"],\
+          ["cheerio", "npm:1.1.2"],\
           ["tailwindcss", "npm:4.1.18"],\
           ["vite", "virtual:d05cd5ff2e58284ebd19eec344a08efab1b2a43571c46c3c76b032f95d00158cc9938e739418d5c062878387fa7297cf77cd29725f4bf7cc5e0d82e749e5fb80#npm:7.3.0"],\
           ["yemen-atlas", "workspace:."]\

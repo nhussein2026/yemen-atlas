@@ -8,6 +8,8 @@ period:
 summary:
   en: "Islamic Yemen became one of the Islamic world's most important centers of learning, scholarship, and spiritual development during the medieval period."
   ar: "أصبح اليمن الإسلامي واحداً من أهم مراكز العلم والمعرفة والتطور الروحي في العالم الإسلامي خلال العصر الوسيط."
+category: "Islamic Period"
+order: 2
 sources: []
 ---
 

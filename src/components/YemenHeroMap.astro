@@ -240,32 +240,61 @@ const { lang = "en" } = Astro.props as Props;
        * MAIN SETUP FUNCTION
        */
       function setupMap(geoData) {
-        // Responsive sizing
-        function updateSize() {
-          const container = document.querySelector(".hero-map-container");
-          if (!container) return;
-
-          const width = container.clientWidth;
-          const height = (width / config.width) * config.height;
-
-          config.width = width;
-          config.height = height;
-
-          svg.setAttribute("width", config.width);
-          svg.setAttribute("height", config.height);
-        }
-
-        updateSize();
-        window.addEventListener("resize", updateSize);
-
         // ============= PROJECTION & PATH =============
-        const projection = d3
+        let projection = d3
           .geoMercator()
           .center([config.centerLon, config.centerLat])
           .scale(config.scale)
           .translate([config.width / 2, config.height / 2]);
 
-        const path = d3.geoPath().projection(projection);
+        let path = d3.geoPath().projection(projection);
+
+        // Responsive sizing with debounce for better performance
+        let resizeTimeout;
+        function updateSize() {
+          const container = document.querySelector(".hero-map-container");
+          if (!container) return;
+
+          const containerWidth = container.clientWidth;
+          const containerHeight = container.clientHeight || window.innerHeight;
+
+          // Calculate aspect ratio and adjust scale for different screen sizes
+          const baseAspectRatio = 1200 / 700; // Original config aspect ratio
+          let width, height;
+
+          if (containerWidth / containerHeight > baseAspectRatio) {
+            // Container is wider than map aspect ratio
+            height = containerHeight;
+            width = height * baseAspectRatio;
+          } else {
+            // Container is taller than map aspect ratio
+            width = containerWidth;
+            height = width / baseAspectRatio;
+          }
+
+          config.width = Math.max(width, 320); // Minimum width
+          config.height = Math.max(height, 240); // Minimum height
+
+          svg.setAttribute("width", config.width);
+          svg.setAttribute("height", config.height);
+
+          // Update projection center
+          projection
+            .center([config.centerLon, config.centerLat])
+            .scale(config.scale)
+            .translate([config.width / 2, config.height / 2]);
+
+          // Update path with new projection
+          path = d3.geoPath().projection(projection);
+        }
+
+        updateSize();
+
+        // Debounced resize handler for better performance
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(updateSize, 150);
+        });
 
         // ============= CREATE SVG GROUPS =============
         d3.select(svg).selectAll("*").remove();

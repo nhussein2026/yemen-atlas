@@ -8,6 +8,8 @@ period:
 summary:
   en: "The Himyarite Kingdom was the last great pre-Islamic Arabian superpower, unifying southern Arabia and becoming a major player in Mediterranean and Indian Ocean trade."
   ar: "كانت المملكة الحميرية آخر قوة عظمى عربية ما قبل الإسلام، موحدة جنوب الجزيرة العربية وأصبحت لاعباً رئيسياً في التجارة في البحر الأبيض المتوسط والمحيط الهندي."
+category: "Prehistory & Ancient Yemen"
+order: 1
 sources: []
 ---
 
